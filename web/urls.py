@@ -14,7 +14,7 @@ student_urls = [
     path('signup/', views.StudentCreateView.as_view(), name='student_create'),
     path('login/', views.StudentLoginView.as_view(), name='student_login'),
     path('logout/', views.StudentLogoutView.as_view(), name='student_logout'),
-    path('<int:pk>/', views.StudentDetailView.as_view(), name='student_detail'),
+    path('<int:pk>/', views.StudentDetailView.as_view(), name='student_detail.html'),
     path('edit/<int:pk>', views.StudentUpdateView.as_view(), name='student_edit'),
     path('delete/<int:pk>', views.StudentDeleteView.as_view(), name='student_delete'),
 ]

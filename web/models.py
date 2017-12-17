@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from django.db import models
 
 
-class Teacher(models.Model):
+class Teacher(User):
     name = models.CharField(max_length=50, verbose_name='教师名')
     point = models.CharField(max_length=50, verbose_name='教学特点')
     add_time = models.DateTimeField("添加时间", auto_now_add=True)
@@ -18,7 +18,7 @@ class Teacher(models.Model):
     #
 
 
-class Student(models.Model):
+class Student(User):
     name = models.CharField("学生姓名", max_length=255)
     password = models.CharField("密码", max_length=255)
     add_time = models.DateTimeField("添加时间", auto_now_add=True)
@@ -36,7 +36,7 @@ class Student(models.Model):
     #     height_field=100, width_field=100)
 
     def __str__(self):
-        return self.username
+        return self.name
 
     class Meta:
         verbose_name = "学生"

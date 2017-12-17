@@ -1,16 +1,17 @@
 import django
 from django import forms
+from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
-from django.contrib.auth.views import LogoutView, LoginView
+from django.contrib.auth.views import LogoutView, LoginView, login
 from django.contrib.messages.views import SuccessMessageMixin
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views.generic import *
 from django.views.generic.base import *
 from extra_views import *
 
-from web.form import MessageForm, StudentSignupForm
+from web.form import StudentSignupForm, StudentLoginForm
 from web.models import Student, Course, Teacher
 
 
@@ -45,22 +46,35 @@ class CourseDeleteView(DeleteView):
 # 学生操作视图
 
 class StudentLoginView(LoginView):
-    pass
-
-
-class StudentLogoutView(LogoutView):
-    pass
-
-
-class StudentCreateView(CreateView):
-    model = Student
-    fields = ['name', 'password']
-    # form_class = StudentSignupForm
-    template_name = "student_signup.html"
-    success_url = "student_login"
+    template_name = "student_login.html"
+    form_class = StudentLoginForm
+    success_url = reverse_lazy("student_detail")
 
     def form_valid(self, form):
-        pass
+        name = form.cleaned_data['name']
+        password = form.cleaned_data['password']
+        remember_me = form.cleaned_data['remember_me']
+        student = Student.objects.get(name=name)
+        if student.password == password:
+            login(student)
+            return redirect(self.success_url)
+
+
+
+class StudentCreateView(FormView):
+    form_class = StudentSignupForm
+    template_name = "student_signup.html"
+    success_url = reverse_lazy("student_login")
+    authenticate()
+    def form_valid(self, form):
+        name = form.cleaned_data['name']
+        password = form.cleaned_data['password']
+        Student(name=name, password=password).save()
+        return redirect(self.success_url)
+
+
+class StudentLogoutView(TemplateView):
+    template_name = "student_logout.html"
 
 
 class StudentDetailView(DetailView):
@@ -71,7 +85,7 @@ class StudentUpdateView(UpdateView):
     model = Student
     template_name_suffix = '_update_form'
     fields = ['name', 'detail']
-    success_url = reverse_lazy('student_detail')
+    success_url = reverse_lazy('student_detail.html')
 
 
 class StudentDeleteView(DeleteView):
