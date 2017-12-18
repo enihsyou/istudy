@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
   <h1>学生</h1>
+  <p>{{ student.name }} </p>
+  <p>{{ student.add_time }}</p>
+  <a href="{% url "student_list_course" student.id %}">list course</a>
+  <a href="{% url "student_join_course" student.id %}">join course</a>
 
 
 {% endblock %}

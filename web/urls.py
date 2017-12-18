@@ -5,10 +5,11 @@ from django.urls import path, include
 from web import views
 
 course_urls = [
-    path('list/', views.CourseCreateView.as_view(), name='course_list'),
+    path('list/', views.CourseListView.as_view(), name='course_list'),
     path('new/<int:pk>', views.CourseCreateView.as_view(), name='course_create'),
     path('edit/<int:pk>', views.CourseUpdateView.as_view(), name='course_edit'),
     path('delete/<int:pk>', views.CourseDeleteView.as_view(), name='course_delete'),
+    path('join/student/<int:pk>', views.StudentJoinCourseView.as_view(), name='student_join_course')
 ]
 student_urls = [
     path('signup/', views.StudentCreateView.as_view(), name='student_create'),

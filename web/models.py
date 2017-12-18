@@ -1,28 +1,33 @@
-from django.contrib.auth.models import User
+from django.contrib.auth.base_user import AbstractBaseUser
+from django.contrib.auth.models import User, AbstractUser
 from django.db import models
+from django.db.models import CASCADE
 
 
-class Teacher(User):
-    name = models.CharField(max_length=50, verbose_name='教师名')
-    point = models.CharField(max_length=50, verbose_name='教学特点')
+class Teacher(AbstractBaseUser):
+    name = models.CharField('教师名', max_length=255, null=False)
+    # point = models.CharField(max_length=50, verbose_name='教学特点')
     add_time = models.DateTimeField("添加时间", auto_now_add=True)
+
+    USERNAME_FIELD = 'name'
+    REQUIRED_FIELDS = ('name',)
 
     class Meta:
         verbose_name = '教师'
 
     def __str__(self):
-        return self.name
+        return str(self.name)
     #
     # def get_course_nums(self):
     #     return self.course_set.all().count()
     #
 
 
-class Student(User):
+class Student(AbstractBaseUser):
     name = models.CharField("学生姓名", max_length=255)
-    password = models.CharField("密码", max_length=255)
     add_time = models.DateTimeField("添加时间", auto_now_add=True)
-
+    USERNAME_FIELD = 'name'
+    REQUIRED_FIELDS = ('name',)
     # gender = models.CharField(max_length=6, choices=(('male', '男'), ('female', '女')), default='female')
     # mobile = models.CharField(max_length=11)
 
@@ -36,20 +41,21 @@ class Student(User):
     #     height_field=100, width_field=100)
 
     def __str__(self):
-        return self.name
+        return str(self.name)
 
     class Meta:
         verbose_name = "学生"
 
 
 class Course(models.Model):
+    # 每个课程有一个老师
     teacher = models.ForeignKey(Teacher, models.CASCADE, verbose_name='讲师')
     name = models.CharField(max_length=50, verbose_name='课程名')
-    detail = models.CharField(max_length=300, verbose_name='课程详情')
+    detail = models.TextField(max_length=500, verbose_name='课程详情')
     add_time = models.DateTimeField("添加时间", auto_now_add=True)
 
     def __str__(self):
-        return self.name
+        return str(self.name)
 
     class Meta:
         verbose_name = '课程'
@@ -77,10 +83,11 @@ class Course(models.Model):
 class Lesson(models.Model):
     course = models.ForeignKey(Course, models.CASCADE, verbose_name='课程')
     name = models.CharField(max_length=100, verbose_name='章节名')
+    learn_url = models.URLField("download link")
     add_time = models.DateTimeField("添加时间", auto_now_add=True)
 
     def __str__(self):
-        return self.name
+        return str(self.name)
 
     class Meta:
         verbose_name = '章节'
@@ -98,34 +105,36 @@ class TakeCourse(models.Model):
     final_term_grade = models.IntegerField("最终成绩")
 
     def __str__(self):
-        return self.final_term_grade
+        return str(self.final_term_grade)
 
-#
-# class Paper(models.Model):
-#     create_time = models.DateTimeField("创建时间", auto_now_add=True)
-#     last_modification = models.DateTimeField("最后更新时间", auto_now=True)
-#     questions = models.ManyToOneRel
-#
-#     def __str__(self):
-#         return self.question_set
-#
-#     class Meta:
-#         verbose_name = "测试试卷"
-#
-#
-# class Question(models.Model):
-#     belong_to = models.ForeignKey(Paper, on_delete=models.CASCADE)
-#     title = models.CharField("问题标题", max_length=255)
-#     comment = models.TextField("问题主体")
-#     last_modification = models.DateTimeField("最后更新时间", auto_now=True)
-#     answer = models.TextField("问题答案")
-#
-#     def __str__(self):
-#         return self.title
-#
-#     class Meta:
-#         verbose_name = "试卷问题"
 
+class Paper(models.Model):
+    title = models.CharField("标题", max_length=50)
+    create_time = models.DateTimeField("创建时间", auto_now_add=True)
+    last_modification = models.DateTimeField("最后更新时间", auto_now=True)
+
+    def question_count(self):
+        return self.question_set.count()
+
+    def __str__(self):
+        return str(self.title)
+
+    class Meta:
+        verbose_name = "测试试卷"
+
+
+class Question(models.Model):
+    question = models.ForeignKey(Paper, on_delete=models.CASCADE)
+    title = models.CharField("问题标题", max_length=255)
+    comment = models.TextField("问题主体")
+    last_modification = models.DateTimeField("最后更新时间", auto_now=True)
+    answer = models.TextField("问题答案")
+
+    def __str__(self):
+        return str(self.title)
+
+    class Meta:
+        verbose_name = "试卷问题"
 
 # class UserCourse(models.Model):
 #     user = models.ForeignKey(Student, on_delete=models.CASCADE, verbose_name='用户')

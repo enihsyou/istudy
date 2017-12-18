@@ -8,9 +8,12 @@
   <title>Document</title>
 </head>
 <body>
-<a href="/login/">登录</a>
-<a href="/signup/">注册</a>
-<a href="/logout/">登出</a>
-<a href="/study/">学习</a>
+<a href={% url "student_login" %}>student登录</a>
+<a href={% url "student_create" %}>student signup</a>
+<a href={% url "student_logout" %}>student logout</a>
+<a href={% url "teacher_login" %}>teacher登录</a>
+<a href={% url "teacher_create" %}>teacher signup</a>
+<a href={% url "teacher_logout" %}>teacher logout</a>
+<a href={% url "course_list" %}>course_list</a>
 </body>
 </html>
