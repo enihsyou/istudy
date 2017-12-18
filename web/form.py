@@ -1,7 +1,7 @@
 # -*- coding: UTF-8 -*-
 from django import forms
 
-from django.contrib.auth.forms import UserChangeForm, UserCreationForm, UsernameField
+from django.contrib.auth.forms import UserChangeForm, UserCreationForm, UsernameField, AuthenticationForm
 from django.forms import ModelForm
 
 from web.models import Student
@@ -27,14 +27,15 @@ class StudentCreateForm(UserCreationForm):
 
     class Meta:
         model = Student
-        fields = ("name",)
+        fields = ("name", )
         field_classes = {'name': UsernameField}
 
 
-class StudentLoginForm(forms.Form):
-    name = forms.CharField()
-    password = forms.CharField(widget=forms.PasswordInput())
-    remember_me = forms.ChoiceField(widget=forms.CheckboxInput())
+class StudentLoginForm(AuthenticationForm):
+    # name = forms.CharField()
+    # password = forms.CharField(widget=forms.PasswordInput())
+    # remember_me = forms.ChoiceField(widget=forms.CheckboxInput())
+    pass
 
 
 class StudentUpdateForm(UserChangeForm):
@@ -49,5 +50,6 @@ class CreateQuestionForm(forms.Form):
 
 class PaperCreateForm(forms.Form):
     pass
+
 
 class StudentAnswerQuestionForm(forms.Form): pass

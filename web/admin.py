@@ -30,22 +30,23 @@ from web.models import Student, Course, Paper, Question, Lesson, Teacher
 
 @admin.register(Student)
 class StudentUserAdmin(admin.ModelAdmin):
+    class CourseInline(admin.StackedInline):
+        model = Course
+
     fields = ('name', 'password')
     list_display = ('name', 'add_time')
+    inlines = (CourseInline,)
 
-
-# admin.site.register(Student, StudentUserAdmin)
-
-
-# admin.site.register(Student, StudentUserAdmin)
 
 @admin.register(Teacher)
 class TeacherUserAdmin(admin.ModelAdmin):
+    class CourseInline(admin.StackedInline):
+        model = Course
+
     fields = ('name', 'password')
     list_display = ('name', 'add_time')
+    inlines = (CourseInline,)
 
-
-# admin.site.register(Teacher, TeacherUserAdmin)
 
 @admin.register(Course)
 class CourseAdmin(admin.ModelAdmin):

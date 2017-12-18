@@ -11,7 +11,7 @@ from django.urls import reverse_lazy
 from django.views.generic import *
 from django.views.generic.base import *
 
-from web.form import StudentSignupForm, StudentLoginForm, PaperCreateForm, StudentCreateView
+from web.form import StudentSignupForm, StudentLoginForm, PaperCreateForm, StudentCreateForm
 from web.models import Student, Course, Teacher, Lesson, Paper
 
 
