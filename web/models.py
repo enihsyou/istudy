@@ -28,6 +28,7 @@ class Student(AbstractBaseUser):
     add_time = models.DateTimeField("添加时间", auto_now_add=True)
     USERNAME_FIELD = 'name'
     REQUIRED_FIELDS = ('name',)
+
     # gender = models.CharField(max_length=6, choices=(('male', '男'), ('female', '女')), default='female')
     # mobile = models.CharField(max_length=11)
 
@@ -50,6 +51,7 @@ class Student(AbstractBaseUser):
 class Course(models.Model):
     # 每个课程有一个老师
     teacher = models.ForeignKey(Teacher, models.CASCADE, verbose_name='讲师')
+    students = models.ManyToManyField(to=Student, through="TakeCourse")
     name = models.CharField(max_length=50, verbose_name='课程名')
     detail = models.TextField(max_length=500, verbose_name='课程详情')
     add_time = models.DateTimeField("添加时间", auto_now_add=True)
@@ -98,11 +100,14 @@ class Lesson(models.Model):
 
 
 class TakeCourse(models.Model):
-    student_uid = models.ForeignKey(Student, on_delete=models.CASCADE, verbose_name="学生id")
-    course_uid = models.ForeignKey(Course, on_delete=models.CASCADE, verbose_name="课程id")
-    usual_behave_grade = models.IntegerField("平时成绩")
-    master_test_grade = models.IntegerField("期末成绩")
-    final_term_grade = models.IntegerField("最终成绩")
+    student = models.ForeignKey(Student, on_delete=models.CASCADE, verbose_name="学生id")
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, verbose_name="课程id")
+    usual_behave_grade = models.IntegerField("平时成绩", default=0)
+    master_test_grade = models.IntegerField("期末成绩", default=0)
+
+    @property
+    def final_term_grade(self):
+        return self.usual_behave_grade + self.master_test_grade
 
     def __str__(self):
         return str(self.final_term_grade)

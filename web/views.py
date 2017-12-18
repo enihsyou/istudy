@@ -1,18 +1,11 @@
-import django
-from django import forms
-from django.contrib.auth import authenticate
-from django.contrib.auth.forms import UserCreationForm, UsernameField
-from django.contrib.auth.models import User
 from django.contrib.auth.views import LogoutView, LoginView, login
-from django.contrib.messages.views import SuccessMessageMixin
-from django.http import HttpResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views.generic import *
 from django.views.generic.base import *
 
-from web.form import StudentSignupForm, StudentLoginForm, PaperCreateForm, StudentCreateForm
-from web.models import Student, Course, Teacher, Lesson, Paper
+from web.form import *
+from web.models import *
 
 
 class IndexView(TemplateView):
