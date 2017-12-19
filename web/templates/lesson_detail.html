@@ -2,4 +2,5 @@
   <p>章节名：{{ lesson.name }}</p>
   <p>添加时间：{{ lesson.add_time }}</p>
   <a href="{{ lesson.learn_url }}">点击学习</a>
+  <a href="{% url 'course_detail' lesson.course_id %}">返回课程详情</a>
 {% endblock %}

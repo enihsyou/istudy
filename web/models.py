@@ -1,23 +1,61 @@
-from django.contrib.auth.base_user import AbstractBaseUser
+from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
 from django.contrib.auth.models import User, AbstractUser
 from django.db import models
-from django.db.models import CASCADE
 
 
-class Teacher(AbstractBaseUser):
-    name = models.CharField('教师名', max_length=255, null=False)
-    point = models.CharField(max_length=50, verbose_name='教学特点')
+class MyUserManager(BaseUserManager):
+    use_in_migrations = True
+
+    def create_user(self, name, password=None, **extra_fields):
+        user = self.model(name=name, **extra_fields)
+        user.set_password(password)
+        user.save(using=self._db)
+        return user
+
+    def create_superuser(self, name, password, **extra_fields):
+        user = self.model(name=name, **extra_fields)
+        user.set_password(password)
+        user.is_admin = True
+        user.save(using=self._db)
+        return user
+
+
+class MyUser(AbstractBaseUser):
+    name = models.CharField('名字', max_length=255, null=False, unique=True)
     add_time = models.DateTimeField("添加时间", auto_now_add=True)
-
+    is_active = models.BooleanField(default=True)
+    is_admin = models.BooleanField(default=True)
     USERNAME_FIELD = 'name'
-    REQUIRED_FIELDS = ('name',)
+    objects = MyUserManager()
+
+    class Meta:
+        verbose_name = "用户"
+
+    def has_perm(self, perm, obj=None):
+        "Does the user have a specific permission?"
+        # Simplest possible answer: Yes, always
+        return True
+
+    def has_module_perms(self, app_label):
+        "Does the user have permissions to view the app `app_label`?"
+        # Simplest possible answer: Yes, always
+        return True
+
+    @property
+    def is_staff(self):
+        "Is the user a member of staff?"
+        # Simplest possible answer: All admins are staff
+        return self.is_admin
+
+class Teacher(MyUser):
+    point = models.CharField(max_length=50, verbose_name='教学特点')
 
     class Meta:
         verbose_name = '教师'
 
     @property
     def teaching_course_count(self):
-        return self.course_set.count()
+        return self.course_set.filter(teacher_id=self.id).count()
 
     def __str__(self):
         return str(self.name)
@@ -27,14 +65,9 @@ class Teacher(AbstractBaseUser):
     #
 
 
-class Student(AbstractBaseUser):
-    name = models.CharField("学生姓名", max_length=255)
-    add_time = models.DateTimeField("添加时间", auto_now_add=True)
+class Student(MyUser):
     course = models.ManyToManyField(to="Course", through="TakeCourse", verbose_name="学生参加的课程")
-    USERNAME_FIELD = 'name'
-    REQUIRED_FIELDS = ('name',)
 
-    gender = models.CharField(max_length=6, choices=(('male', '男'), ('female', '女')), default='female')
     mobile = models.CharField(max_length=11)
 
     # def get_image_upload_path(self, file_name):
@@ -47,7 +80,7 @@ class Student(AbstractBaseUser):
     #     height_field=100, width_field=100)
     @property
     def take_course_count(self):
-        return self.takecourse_set.count()
+        return self.takecourse_set.filter(student_id=self.id).count()
 
     def __str__(self):
         return str(self.name)

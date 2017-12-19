@@ -4,12 +4,7 @@ from django import forms
 from django.contrib.auth.forms import UserChangeForm, UserCreationForm, UsernameField, AuthenticationForm
 from django.forms import ModelForm
 
-from web.models import Student
-
-
-class StudentSignupForm(forms.Form):
-    name = forms.CharField()
-    password = forms.CharField(widget=forms.PasswordInput())
+from web.models import Student, Teacher
 
 
 class StudentCreateForm(UserCreationForm):
@@ -28,6 +23,25 @@ class StudentCreateForm(UserCreationForm):
     class Meta:
         model = Student
         fields = ("name", )
+        field_classes = {'name': UsernameField}
+
+
+class TeacherCreateForm(UserCreationForm):
+    """学生注册"""
+
+    # form_class = StudentSignupForm
+    # template_name = "student_signup.html"
+    # success_url = reverse_lazy("student_login")
+    #
+    # def form_valid(self, form):
+    #     name = form.cleaned_data["username"]
+    #     password = form.cleaned_data['password']
+    #     Student(name=name, password=password).save()
+    #     return redirect(self.success_url)
+
+    class Meta:
+        model = Teacher
+        fields = ("name",)
         field_classes = {'name': UsernameField}
 
 

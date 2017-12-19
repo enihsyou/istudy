@@ -25,11 +25,43 @@ class CourseListView(ListView):
 
 class TeacherCourseListView(ListView):
     """列出所有相关课程"""
+    model = Teacher
 
     def get_queryset(self):
         return Course.objects.filter(teacher_id=self.kwargs['teacher'])
 
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(TeacherCourseListView, self).get_context_data(**kwargs)
+        context['teacher'] = Teacher.objects.get(id=self.kwargs['teacher'])
+        return context
+
+    context_object_name = "course_list"
+
     template_name = "teacher_course_list.html"
+
+
+class TeacherCourseDetailView(DetailView):
+    """列出所有相关课程"""
+    model = Course
+    pk_url_kwarg = 'course'
+
+    #
+    # def get_queryset(self):
+    #     return Course.objects.filter(teacher_id=self.kwargs['teacher'])
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(TeacherCourseDetailView, self).get_context_data(**kwargs)
+        context['teacher'] = Teacher.objects.get(id=self.kwargs['teacher'])
+        return context
+
+    template_name = "teacher_course_detail.html"
+
+
+class TeacherLessonCreateView(CreateView):
+    """列出所有相关课程"""
+    model = Lesson
+    fields = ('course', 'name', 'learn_url')
+    template_name = "lesson_create.html"
 
 
 class StudentCourseListView(ListView):
@@ -123,7 +155,7 @@ def course_join_view(request, student, course):
     except Student.DoesNotExist:
         raise Http404("Student not exist")
     TakeCourse(student=stu, course=cou).save()
-    return redirect(reverse_lazy('student_course_list', kwargs={'student':student}))
+    return redirect(reverse_lazy('student_course_list', kwargs={'student': student}))
 
 
 class LessonListView(ListView):
@@ -137,6 +169,7 @@ class LessonListView(ListView):
 
 class LessonDetailView(DetailView):
     pk_url_kwarg = 'lesson'
+    model = Lesson
 
     def get_queryset(self):
         return Lesson.objects.filter(course_id=self.kwargs['course'])  # , id=self.kwargs['lesson'])
@@ -149,14 +182,21 @@ class LessonDetailView(DetailView):
 class StudentLoginView(LoginView):
     """学生登陆"""
     template_name = "student_login.html"
-    success_url = reverse_lazy('course_list')
+
+    def get_success_url(self):
+        return reverse_lazy('student_detail',
+                            kwargs={'pk': Student.objects.get(name=str(self.request.POST['username'])).id})
 
 
 class StudentCreateView(CreateView):
     """学生注册"""
+    model = Student
     form_class = StudentCreateForm
     template_name = "student_signup.html"
-    success_url = reverse_lazy("student_login")
+
+    def get_success_url(self):
+        return reverse_lazy('student_detail',
+                            kwargs={'pk': Student.objects.get(name=str(self.request.POST['name'])).id})
 
     class Meta:
         model = Student
@@ -194,14 +234,23 @@ class StudentTakeExam(View):
 # 教师操作视图
 
 class TeacherLoginView(LoginView):
-    pass
+    template_name = "teacher_login.html"
 
 
 class TeacherCreateView(CreateView):
     model = Teacher
-    template_name = "student_signup.html"
-    # form_class = StudentSignupForm
+    form_class = TeacherCreateForm
+    template_name = "teacher_signup.html"
+
     # fields = ['username', 'password']
+    def get_success_url(self):
+        return reverse_lazy('teacher_detail',
+                            kwargs={'pk': Teacher.objects.get(name=str(self.request.POST['name'])).id})
+
+    class Meta:
+        model = Student
+        fields = ("name",)
+        field_classes = {'name': UsernameField}
 
 
 class TeacherDetailView(DetailView):
@@ -230,7 +279,9 @@ class PaperListView(ListView):
 class PaperCreateView(CreateView):
     model = Paper
     template_name = "paper_create.html"
-    form_class = PaperCreateForm
+    def get_success_url(self):
+        return reverse_lazy('paper_list')
+    fields = ('title',)
 
 
 class QuestionCreateView(CreateView):

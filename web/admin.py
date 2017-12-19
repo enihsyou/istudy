@@ -2,12 +2,33 @@ from django.contrib import admin
 from django.contrib.admin.options import *
 
 # Register your models here.
-from django.contrib.auth.admin import UserAdmin
-from django.contrib.auth.models import User
+from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
+from django.contrib.auth.forms import UserChangeForm, UserCreationForm
+from django.contrib.auth.models import User, Group
 
 from web import models
 
-from web.models import Student, Course, Paper, Question, Lesson, Teacher, TakeCourse
+from web.models import Student, Course, Paper, Question, Lesson, Teacher, TakeCourse, MyUser
+
+admin.site.site_header = "项目管理课程系统"
+
+
+class UserAdmin(BaseUserAdmin):
+    # The forms to add and change user instances
+    form = UserChangeForm
+    add_form = UserCreationForm
+
+    list_display = ('name', 'add_time')
+
+    search_fields = ('name',)
+    ordering = ('name',)
+    filter_horizontal = ()
+    list_filter = ('is_admin',)
+
+
+# Now register the new UserAdmin...
+admin.site.register(MyUser, UserAdmin)
+admin.site.unregister(Group)
 
 
 @admin.register(Student)
@@ -19,7 +40,7 @@ class StudentUserAdmin(admin.ModelAdmin):
         extra = 0
 
     fields = ('name', 'password')
-    list_display = ('name', 'add_time','take_course_count')
+    list_display = ('name', 'add_time', 'take_course_count')
     inlines = (TakeInline,)
 
 
@@ -40,7 +61,7 @@ class CourseAdmin(admin.ModelAdmin):
         model = Lesson
         extra = 0
 
-    inlines = (LessonAdminInline, )
+    inlines = (LessonAdminInline,)
     list_display = ('name', 'teacher', 'add_time', 'student_count', 'lesson_count')
 
 

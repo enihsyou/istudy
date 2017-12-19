@@ -1,12 +1,13 @@
 {% block content %}
 
-  <h1>Course</h1>
+  <h1>现在开放以下课程</h1>
   <ul>
     {% for course in course_list %}
       <li>
         <a href="{% url 'course_detail' course.id %}">{{ course.name }}</a>
         : {{ course.detail }}
-      <p>执教老师：{{ course.teacher.name }}</p>
+        <p>执教老师：{{ course.teacher.name }}</p>
+        <p>有{{ course.student_count }}学生参与</p>
       </li>
     {% endfor %}
   </ul>

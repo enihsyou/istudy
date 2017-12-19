@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-  <h1>Paper list</h1>
+  <h1>试卷列表</h1>
   <ul>
     {% for paper in paper_list %}
       <li>
@@ -10,5 +10,5 @@
     {% endfor %}
   </ul>
 
-  <a href="{% url 'paper_create' %}">New</a>
+  <a href="{% url 'paper_create' %}">新建试卷</a>
 {% endblock %}

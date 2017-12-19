@@ -1,11 +1,11 @@
 {% block content %}
-  <h1>试卷详情</h1>
-  <p>{{ paper.title }}</p>
+  <h1>试卷『{ paper.title }}』详情</h1>
   <ul>
-    {% for question in paper.question_set%}
+    {% for question in paper.question_set.all %}
       <li>{{ question.title }}</li>
       <li>{{ question.comment }}</li>
       <li>{{ question.answer }}</li>
     {% endfor %}
   </ul>
+
 {% endblock %}

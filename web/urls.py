@@ -9,12 +9,12 @@ urlpatterns = [
     path('logout/', views.logout, name='logout'),
     path('course/', include([
         path('list/', views.CourseListView.as_view(), name='course_list'),
-        path('new/', views.CourseCreateView.as_view(), name='course_create'),
         path('<int:course>/', views.CourseDetailView.as_view(), name='course_detail'),
         path('<int:course>/<int:lesson>/', views.LessonDetailView.as_view(), name='lesson_detail'),
     ])),
     path('paper/', include([
         path('list/', views.PaperListView.as_view(), name='paper_list'),
+        path('add/', views.PaperCreateView.as_view(), name='paper_create'),
         path('<int:pk>/', views.PaperDetailView.as_view(), name='paper_detail'),
     ])),
     path('student/', include([
@@ -37,7 +37,9 @@ urlpatterns = [
         path('<int:pk>/delete', views.TeacherDeleteView.as_view(), name='teacher_delete'),
         path('<int:teacher>/course/', include([
             path('list/', views.TeacherCourseListView.as_view(), name='teacher_course_list'),
-            path('<int:course>/', views.CourseDetailView.as_view(), name='course_detail'),
+            path('new/', views.CourseCreateView.as_view(), name='teacher_course_create'),
+            path('<int:course>/', views.TeacherCourseDetailView.as_view(), name='teacher_course_detail'),
+            path('<int:course>/add_lesson', views.TeacherLessonCreateView.as_view(), name='teacher_lesson_create'),
             path('<int:course>/edit', views.TeacherCourseUpdateView.as_view(), name='course_edit'),
             path('<int:course>/delete', views.TeacherCourseDeleteView.as_view(), name='course_delete'),
         ]))
