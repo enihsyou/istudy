@@ -17,8 +17,9 @@ class StudentUserAdmin(admin.ModelAdmin):
         readonly_fields = ('final_term_grade',)
         fields = ('usual_behave_grade', 'master_test_grade', 'final_term_grade')
         extra = 0
+
     fields = ('name', 'password')
-    list_display = ('name', 'add_time')
+    list_display = ('name', 'add_time','take_course_count')
     inlines = (TakeInline,)
 
 
@@ -29,7 +30,7 @@ class TeacherUserAdmin(admin.ModelAdmin):
         extra = 0
 
     fields = ('name', 'password')
-    list_display = ('name', 'add_time')
+    list_display = ('name', 'add_time', 'teaching_course_count')
     inlines = (CourseInline,)
 
 
@@ -39,8 +40,8 @@ class CourseAdmin(admin.ModelAdmin):
         model = Lesson
         extra = 0
 
-    inlines = (LessonAdminInline,)
-    list_display = ('name', 'teacher', 'add_time')
+    inlines = (LessonAdminInline, )
+    list_display = ('name', 'teacher', 'add_time', 'student_count', 'lesson_count')
 
 
 @admin.register(Paper)

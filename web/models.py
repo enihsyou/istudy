@@ -15,6 +15,10 @@ class Teacher(AbstractBaseUser):
     class Meta:
         verbose_name = '教师'
 
+    @property
+    def teaching_course_count(self):
+        return self.course_set.count()
+
     def __str__(self):
         return str(self.name)
     #
@@ -41,6 +45,9 @@ class Student(AbstractBaseUser):
     #     upload_to=get_image_upload_path,
     #     default=u'image/default_avatar.png',
     #     height_field=100, width_field=100)
+    @property
+    def take_course_count(self):
+        return self.takecourse_set.count()
 
     def __str__(self):
         return str(self.name)
@@ -56,6 +63,14 @@ class Course(models.Model):
     name = models.CharField(max_length=50, verbose_name='课程名')
     detail = models.TextField(max_length=500, verbose_name='课程详情')
     add_time = models.DateTimeField("添加时间", auto_now_add=True)
+
+    @property
+    def student_count(self):
+        return self.student_set.count()
+
+    @property
+    def lesson_count(self):
+        return self.lesson_set.count()
 
     def __str__(self):
         return str(self.name)
@@ -111,7 +126,7 @@ class TakeCourse(models.Model):
         return self.usual_behave_grade + self.master_test_grade
 
     def __str__(self):
-        return str(self.final_term_grade)
+        return "{}在{}课上取得了{}分".format(self.student.name, self.course.name, self.final_term_grade)
 
 
 class Paper(models.Model):

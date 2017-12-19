@@ -1,12 +1,14 @@
-<h1>Course</h1>
+<h1>Courses</h1>
 <ul>
-  {% for course in object_list %}
+  {% for course in course_list %}
     <li>
-      <a href="{% url 'lesson_list' course.id %}">{{ course.name }}</a> : {{ course.detail }}
-      <a href="{% url "course_edit" course.id %}">修改</a>
-      <a href="{% url "course_delete" course.id %}">删除</a>
+      <a href="{% url 'course_detail' course.id %}">{{ course.name }}</a>
+      : {{ course.detail }}
+      <p>执教老师：{{ course.teacher.name }}</p>
+      <a href="{% url "course_edit" course.teacher.id course.id %}">修改</a>
+      <a href="{% url "course_delete" course.teacher.id course.id %}">删除</a>
     </li>
   {% endfor %}
 </ul>
 
-<a href="{% url 'course_create' %}">New</a>
+<a href="{% url 'course_create' %}">添加课程</a>

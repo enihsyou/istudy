@@ -1,11 +1,12 @@
 {% block content %}
 
-  <h1>{{ student.name }}加入的课程</h1>
+  <h1>{{ student.name }}可以加入的课程</h1>
   <ul>
     {% for course in course_list %}
       <li>
         <a href="{% url 'course_detail' course.id %}">{{ course.name }}</a>
         : {{ course.detail }}
+        <a href="{% url 'student_join_course' student.id course.id %}">JOIN</a>
       </li>
     {% endfor %}
   </ul>

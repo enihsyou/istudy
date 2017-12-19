@@ -1,6 +1,5 @@
-{% extends base.html %}
 {% block content %}
-  <p>{{ lesson.name }}</p>
-  <p>{{ lesson.add_time }}</p>
+  <p>章节名：{{ lesson.name }}</p>
+  <p>添加时间：{{ lesson.add_time }}</p>
   <a href="{{ lesson.learn_url }}">点击学习</a>
 {% endblock %}

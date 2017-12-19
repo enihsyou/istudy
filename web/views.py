@@ -3,7 +3,7 @@ from django.contrib.auth.views import logout, LoginView, login
 from django.http import Http404
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
-from django.views.decorators.http import require_POST
+from django.views.decorators.http import require_POST, require_GET
 from django.views.generic import *
 from django.views.generic.base import *
 
@@ -27,15 +27,37 @@ class TeacherCourseListView(ListView):
     """列出所有相关课程"""
 
     def get_queryset(self):
-        return Course.objects.get(teacher_id=self.kwargs['pk'])
+        return Course.objects.filter(teacher_id=self.kwargs['teacher'])
 
-    template_name = "course_list.html"
+    template_name = "teacher_course_list.html"
 
 
 class StudentCourseListView(ListView):
     """列出所有相关课程"""
-    model = Course
+
+    def get_queryset(self):
+        return TakeCourse.objects.filter(student_id=self.kwargs['student'])
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(StudentCourseListView, self).get_context_data(**kwargs)
+        context['student'] = Student.objects.get(id=self.kwargs['student'])
+        return context
+
+    context_object_name = "course_list"
     template_name = "student_course_list.html"
+
+
+class StudentCourseListAllView(ListView):
+    """列出所有相关课程"""
+    model = Course
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(StudentCourseListAllView, self).get_context_data(**kwargs)
+        context['student'] = Student.objects.get(id=self.kwargs['student'])
+        return context
+
+    context_object_name = "course_list"
+    template_name = "student_course_list_all.html"
 
 
 class CourseCreateView(CreateView):
@@ -53,12 +75,15 @@ class CourseCreateView(CreateView):
     #     return redirect(self.get_success_url())
 
 
-class CourseUpdateView(UpdateView):
+class TeacherCourseUpdateView(UpdateView):
     """教师更新课程信息"""
     model = Course
+    pk_url_kwarg = 'course'
     template_name = "course_update.html"
     fields = ['name', 'detail']
-    success_url = reverse_lazy('course_list')
+
+    def get_success_url(self):
+        return reverse_lazy('course_list', self.kwargs['course'])
     #
     # def form_valid(self, form):
     #     name = form.cleaned_data['name']
@@ -71,38 +96,51 @@ class CourseUpdateView(UpdateView):
     #     return redirect(self.get_success_url())
 
 
-class CourseDeleteView(DeleteView):
+class TeacherCourseDeleteView(DeleteView):
     """教师删除课程"""
     model = Course
-    success_url = reverse_lazy('course_list')
+    pk_url_kwarg = 'course'
+
+    def get_success_url(self):
+        return reverse_lazy('teacher_course_list', self.kwargs['teacher'])
+
     template_name = "course_delete.html"
 
 
 class CourseDetailView(DetailView):
     model = Course
+    pk_url_kwarg = 'course'
     template_name = "course_detail.html"
 
 
-@require_POST
+@require_GET
 def course_join_view(request, student, course):
     try:
-        cou = Course.objects.get(course)
-        stu = Student.objects.get(student)
+        cou = Course.objects.get(id=course)
+        stu = Student.objects.get(id=student)
     except Course.DoesNotExist:
         raise Http404("Course not exist")
     except Student.DoesNotExist:
         raise Http404("Student not exist")
     TakeCourse(student=stu, course=cou).save()
+    return redirect(reverse_lazy('student_course_list', kwargs={'student':student}))
 
 
 class LessonListView(ListView):
     """列出课程里全部的教学章节，右边是学习（下载）链接"""
-    model = Lesson
+
+    def get_queryset(self):
+        return Lesson.objects.filter(course_id=self.kwargs['course'])
+
     template_name = "lesson_list.html"
 
 
 class LessonDetailView(DetailView):
-    model = Lesson
+    pk_url_kwarg = 'lesson'
+
+    def get_queryset(self):
+        return Lesson.objects.filter(course_id=self.kwargs['course'])  # , id=self.kwargs['lesson'])
+
     template_name = "lesson_detail.html"
 
 

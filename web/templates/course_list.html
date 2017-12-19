@@ -4,11 +4,12 @@
   <ul>
     {% for course in course_list %}
       <li>
-        <a href="{% url 'lesson_list' course.id %}">{{ course.name }}</a>
+        <a href="{% url 'course_detail' course.id %}">{{ course.name }}</a>
         : {{ course.detail }}
+      <p>执教老师：{{ course.teacher.name }}</p>
       </li>
     {% endfor %}
   </ul>
 
-  <a href="{% url 'course_create' %}">New</a>
+
 {% endblock %}
