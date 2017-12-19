@@ -1,3 +1,4 @@
+{% extends base.html %}
 {% block content %}
 
   <h1>Course</h1>
@@ -6,6 +7,7 @@
       <li>
         <a href="{% url 'lesson_list' course.id %}">{{ course.name }}</a>
         : {{ course.detail }}
+        <a href="{% url 'student_join_course' course.id %}">JOIN</a>
       </li>
     {% endfor %}
   </ul>

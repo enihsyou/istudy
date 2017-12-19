@@ -16,6 +16,7 @@ class StudentUserAdmin(admin.ModelAdmin):
         model = TakeCourse
         readonly_fields = ('final_term_grade',)
         fields = ('usual_behave_grade', 'master_test_grade', 'final_term_grade')
+        extra = 0
     fields = ('name', 'password')
     list_display = ('name', 'add_time')
     inlines = (TakeInline,)
@@ -25,7 +26,7 @@ class StudentUserAdmin(admin.ModelAdmin):
 class TeacherUserAdmin(admin.ModelAdmin):
     class CourseInline(admin.StackedInline):
         model = Course
-        extra = 1
+        extra = 0
 
     fields = ('name', 'password')
     list_display = ('name', 'add_time')
@@ -36,7 +37,7 @@ class TeacherUserAdmin(admin.ModelAdmin):
 class CourseAdmin(admin.ModelAdmin):
     class LessonAdminInline(admin.TabularInline):
         model = Lesson
-        extra = 1
+        extra = 0
 
     inlines = (LessonAdminInline,)
     list_display = ('name', 'teacher', 'add_time')
@@ -46,7 +47,7 @@ class CourseAdmin(admin.ModelAdmin):
 class PaperAdmin(admin.ModelAdmin):
     class QuestionInline(admin.TabularInline):
         model = Question
-        extra = 1
+        extra = 0
 
     inlines = (QuestionInline,)
     list_display = ('title', 'create_time', 'question_count')

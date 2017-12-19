@@ -1,7 +1,9 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import logout, LoginView, login
+from django.http import Http404
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
+from django.views.decorators.http import require_POST
 from django.views.generic import *
 from django.views.generic.base import *
 
@@ -21,10 +23,25 @@ class CourseListView(ListView):
     template_name = "course_list.html"
 
 
+class TeacherCourseListView(ListView):
+    """列出所有相关课程"""
+
+    def get_queryset(self):
+        return Course.objects.get(teacher_id=self.kwargs['pk'])
+
+    template_name = "course_list.html"
+
+
+class StudentCourseListView(ListView):
+    """列出所有相关课程"""
+    model = Course
+    template_name = "student_course_list.html"
+
+
 class CourseCreateView(CreateView):
     """教师添加自己教学的课程"""
     model = Course
-    fields = ['name', 'detail']
+    fields = ['teacher', 'name', 'detail']
     template_name = "course_create.html"
     success_url = reverse_lazy('course_list')
     #
@@ -64,6 +81,18 @@ class CourseDeleteView(DeleteView):
 class CourseDetailView(DetailView):
     model = Course
     template_name = "course_detail.html"
+
+
+@require_POST
+def course_join_view(request, student, course):
+    try:
+        cou = Course.objects.get(course)
+        stu = Student.objects.get(student)
+    except Course.DoesNotExist:
+        raise Http404("Course not exist")
+    except Student.DoesNotExist:
+        raise Http404("Student not exist")
+    TakeCourse(student=stu, course=cou).save()
 
 
 class LessonListView(ListView):
@@ -139,6 +168,7 @@ class TeacherCreateView(CreateView):
 
 class TeacherDetailView(DetailView):
     model = Teacher
+    template_name = "teacher_index.html"
 
 
 class TeacherUpdateView(UpdateView):
