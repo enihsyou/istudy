@@ -27,13 +27,13 @@ class CourseCreateView(CreateView):
     fields = ['name', 'detail']
     template_name = "course_create.html"
     success_url = reverse_lazy('course_list')
-
-    def form_valid(self, form):
-        name = form.cleaned_data['name']
-        detail = form.cleaned_data['detail']
-        teacher_id = 9
-        Course(teacher=teacher_id, name=name, detail=detail).save()
-        return redirect(self.get_success_url())
+    #
+    # def form_valid(self, form):
+    #     name = form.cleaned_data['name']
+    #     detail = form.cleaned_data['detail']
+    #     teacher_id = 9
+    #     Course(teacher=teacher_id, name=name, detail=detail).save()
+    #     return redirect(self.get_success_url())
 
 
 class CourseUpdateView(UpdateView):
@@ -42,16 +42,16 @@ class CourseUpdateView(UpdateView):
     template_name = "course_update.html"
     fields = ['name', 'detail']
     success_url = reverse_lazy('course_list')
-
-    def form_valid(self, form):
-        name = form.cleaned_data['name']
-        detail = form.cleaned_data['detail']
-        teacher_id = 9
-        course = Course.objects.get(teacher=teacher_id, name=name)
-        course.name = name
-        course.detail = detail
-        course.save()
-        return redirect(self.get_success_url())
+    #
+    # def form_valid(self, form):
+    #     name = form.cleaned_data['name']
+    #     detail = form.cleaned_data['detail']
+    #     teacher_id = 9
+    #     course = Course.objects.get(teacher=teacher_id, name=name)
+    #     course.name = name
+    #     course.detail = detail
+    #     course.save()
+    #     return redirect(self.get_success_url())
 
 
 class CourseDeleteView(DeleteView):
@@ -61,10 +61,20 @@ class CourseDeleteView(DeleteView):
     template_name = "course_delete.html"
 
 
+class CourseDetailView(DetailView):
+    model = Course
+    template_name = "course_detail.html"
+
+
 class LessonListView(ListView):
     """列出课程里全部的教学章节，右边是学习（下载）链接"""
     model = Lesson
     template_name = "lesson_list.html"
+
+
+class LessonDetailView(DetailView):
+    model = Lesson
+    template_name = "lesson_detail.html"
 
 
 # 学生操作视图
@@ -94,24 +104,19 @@ class StudentLogoutView(TemplateView):
 class StudentDetailView(DetailView):
     """展示学生个人信息"""
     model = Student
-    template_name = "student_detail.html"
+    template_name = "student_index.html"
 
 
 class StudentUpdateView(UpdateView):
     model = Student
     template_name = 'student_update.html'
     fields = ['name', 'detail']
-    success_url = reverse_lazy('student_detail.html')
+    success_url = reverse_lazy('student_index.html')
 
 
 class StudentDeleteView(DeleteView):
     model = Student
     success_url = reverse_lazy('student_login')
-
-
-# Student Course
-class StudentJoinCourseView(CreateView):
-    pass
 
 
 # Student Exam
@@ -157,4 +162,15 @@ class PaperListView(ListView):
 class PaperCreateView(CreateView):
     model = Paper
     template_name = "paper_create.html"
-    forms = PaperCreateForm
+    form_class = PaperCreateForm
+
+
+class QuestionCreateView(CreateView):
+    model = Question
+    template_name = "question_create.html"
+    form_class = QuestionCreateForm
+
+
+class PaperDetailView(DetailView):
+    model = Paper
+    template_name = "paper_detail.html"

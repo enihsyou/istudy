@@ -1,8 +1,10 @@
 <h1>Course</h1>
 <ul>
-  {% for course in course_list %}
+  {% for course in object_list %}
     <li>
       <a href="{% url 'lesson_list' course.id %}">{{ course.name }}</a> : {{ course.detail }}
+      <a href="{% url "course_edit" course.id %}">修改</a>
+      <a href="{% url "course_delete" course.id %}">删除</a>
     </li>
   {% endfor %}
 </ul>

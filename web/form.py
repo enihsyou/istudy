@@ -53,3 +53,6 @@ class PaperCreateForm(forms.Form):
 
 
 class StudentAnswerQuestionForm(forms.Form): pass
+
+class QuestionCreateForm(forms.ModelForm):
+    pass

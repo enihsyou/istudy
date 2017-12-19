@@ -6,7 +6,7 @@ from django.db.models import CASCADE
 
 class Teacher(AbstractBaseUser):
     name = models.CharField('教师名', max_length=255, null=False)
-    # point = models.CharField(max_length=50, verbose_name='教学特点')
+    point = models.CharField(max_length=50, verbose_name='教学特点')
     add_time = models.DateTimeField("添加时间", auto_now_add=True)
 
     USERNAME_FIELD = 'name'
@@ -26,11 +26,12 @@ class Teacher(AbstractBaseUser):
 class Student(AbstractBaseUser):
     name = models.CharField("学生姓名", max_length=255)
     add_time = models.DateTimeField("添加时间", auto_now_add=True)
+    course = models.ManyToManyField(to="Course", through="TakeCourse", verbose_name="学生参加的课程")
     USERNAME_FIELD = 'name'
     REQUIRED_FIELDS = ('name',)
 
-    # gender = models.CharField(max_length=6, choices=(('male', '男'), ('female', '女')), default='female')
-    # mobile = models.CharField(max_length=11)
+    gender = models.CharField(max_length=6, choices=(('male', '男'), ('female', '女')), default='female')
+    mobile = models.CharField(max_length=11)
 
     # def get_image_upload_path(self, file_name):
     #     print(self),
@@ -51,7 +52,7 @@ class Student(AbstractBaseUser):
 class Course(models.Model):
     # 每个课程有一个老师
     teacher = models.ForeignKey(Teacher, models.CASCADE, verbose_name='讲师')
-    students = models.ManyToManyField(to=Student, through="TakeCourse")
+    # students = models.ManyToManyField(to=Student, through="TakeCourse")
     name = models.CharField(max_length=50, verbose_name='课程名')
     detail = models.TextField(max_length=500, verbose_name='课程详情')
     add_time = models.DateTimeField("添加时间", auto_now_add=True)
@@ -92,7 +93,7 @@ class Lesson(models.Model):
         return str(self.name)
 
     class Meta:
-        verbose_name = '章节'
+        verbose_name = '课程章节'
 
     # # 获取章节视频
     # def get_lesson_video(self):
@@ -100,8 +101,8 @@ class Lesson(models.Model):
 
 
 class TakeCourse(models.Model):
-    student = models.ForeignKey(Student, on_delete=models.CASCADE, verbose_name="学生id")
     course = models.ForeignKey(Course, on_delete=models.CASCADE, verbose_name="课程id")
+    student = models.ForeignKey(Student, on_delete=models.CASCADE, verbose_name="学生id")
     usual_behave_grade = models.IntegerField("平时成绩", default=0)
     master_test_grade = models.IntegerField("期末成绩", default=0)
 
@@ -129,7 +130,7 @@ class Paper(models.Model):
 
 
 class Question(models.Model):
-    question = models.ForeignKey(Paper, on_delete=models.CASCADE)
+    paper = models.ForeignKey(Paper, on_delete=models.CASCADE)
     title = models.CharField("问题标题", max_length=255)
     comment = models.TextField("问题主体")
     last_modification = models.DateTimeField("最后更新时间", auto_now=True)

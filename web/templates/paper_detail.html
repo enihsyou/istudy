@@ -1,0 +1,12 @@
+{% extends base.html %}
+{% block content %}
+  <h1>试卷详情</h1>
+  <p>{{ paper.title }}</p>
+  <ul>
+    {% for question in paper.question_set%}
+      <li>{{ question.title }}</li>
+      <li>{{ question.comment }}</li>
+      <li>{{ question.answer }}</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

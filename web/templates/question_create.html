@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
-  <h1>新增试卷</h1>
+  <h1>新增问题</h1>
+
   <form action="" method="post">
     {% csrf_token %} {{ form.as_p }}
     <input type="submit" value="Save"/>
   </form>
+
 
 {% endblock %}

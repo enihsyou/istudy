@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h1>Paper list</h1>
+  <ul>
+    {% for paper in paper_list %}
+      <li>
+        <a href="{% url 'paper_detail' paper.id %}">{{ paper.title }}</a>
+        : {{ paper.question_count }}
+      </li>
+    {% endfor %}
+  </ul>
+
+  <a href="{% url 'paper_create' %}">New</a>
+{% endblock %}

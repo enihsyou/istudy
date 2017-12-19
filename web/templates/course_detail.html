@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>课程详情</title>
+</head>
+<body>
+<h1>{{ course.name }}</h1>
+<p>{{ course.teacher.name }} </p>
+<p>{{ course.detail }}</p>
+<p>{{ course.add_time }}</p>
+<a href="{% url "lesson_list" course.id %}">list lesson</a>
+</body>
+</html>
