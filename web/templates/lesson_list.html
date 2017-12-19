@@ -1,6 +1,9 @@
-{% extends base.html %}
-{% for lesson in lesson_list %}
-  <p>{{ lesson.name }}</p>
-  <p>{{ lesson.add_time }}</p>
-  <a href="{{ lesson.learn_url }}">Learn</a>
-{% endfor %}
+<ul>
+  {% for lesson in lesson_list %}
+    <li>
+      <p>{{ lesson.name }}</p>
+      <p>{{ lesson.add_time }}</p>
+      <a href="{{ lesson.learn_url }}">点击学习</a>
+    </li>
+  {% endfor %}
+</ul>

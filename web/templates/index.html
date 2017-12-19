@@ -8,12 +8,23 @@
   <title>Document</title>
 </head>
 <body>
-<a href={% url "student_login" %}>student登录</a>
-<a href={% url "student_create" %}>student signup</a>
-<a href={% url "student_logout" %}>student logout</a>
-<a href={% url "teacher_login" %}>teacher登录</a>
-<a href={% url "teacher_create" %}>teacher signup</a>
-<a href={% url "teacher_logout" %}>teacher logout</a>
-<a href={% url "course_list" %}>course_list</a>
+<div>
+  <a href={% url "student_login" %}>学生登录</a>
+</div>
+<div>
+  <a href={% url "student_create" %}>学生注册</a>
+</div>
+<div>
+  <a href={% url "logout" %}>登出</a>
+</div>
+<div>
+  <a href={% url "teacher_login" %}>教师登录</a>
+</div>
+<div>
+  <a href={% url "teacher_create" %}>教室注册</a>
+</div>
+{#<div>#}
+{#  <a href={% url "course_list" %}>课程列表</a>#}
+{#</div>#}
 </body>
 </html>

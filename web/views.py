@@ -1,4 +1,5 @@
-from django.contrib.auth.views import LogoutView, LoginView, login
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.views import logout, LoginView, login
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views.generic import *
@@ -71,17 +72,7 @@ class LessonListView(ListView):
 class StudentLoginView(LoginView):
     """学生登陆"""
     template_name = "student_login.html"
-    form_class = StudentLoginForm
-    success_url = reverse_lazy("student_detail")
-
-    def form_valid(self, form):
-        name = form.cleaned_data["username"]
-        password = form.cleaned_data['password']
-        remember_me = form.cleaned_data['remember_me']
-        student = Student.objects.get(name=name)
-        if student.password == password:
-            login(student)
-            return redirect(self.get_success_url())
+    success_url = reverse_lazy('course_list')
 
 
 class StudentCreateView(CreateView):
@@ -89,12 +80,6 @@ class StudentCreateView(CreateView):
     form_class = StudentCreateForm
     template_name = "student_signup.html"
     success_url = reverse_lazy("student_login")
-
-    def form_valid(self, form):
-        name = form.cleaned_data["username"]
-        password = form.cleaned_data['password']
-        Student(name=name, password=password).save()
-        return redirect(self.success_url)
 
     class Meta:
         model = Student
@@ -137,10 +122,6 @@ class StudentTakeExam(View):
 # 教师操作视图
 
 class TeacherLoginView(LoginView):
-    pass
-
-
-class TeacherLogoutView(LogoutView):
     pass
 
 

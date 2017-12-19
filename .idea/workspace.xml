@@ -2,13 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="232de99d-c419-46f4-953b-73c1d5cdb53f" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/web/migrations/0002_auto_20171218_1920.py" />
-      <change beforePath="$PROJECT_DIR$/web/admin.py" afterPath="$PROJECT_DIR$/web/admin.py" />
-      <change beforePath="$PROJECT_DIR$/web/migrations/0001_initial.py" afterPath="$PROJECT_DIR$/web/migrations/0001_initial.py" />
-      <change beforePath="$PROJECT_DIR$/web/migrations/0002_auto_20171218_1211.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/web/migrations/0003_auto_20171218_1239.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/web/models.py" afterPath="$PROJECT_DIR$/web/models.py" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/web/templates/course_list.html" afterPath="$PROJECT_DIR$/web/templates/course_list.html" />
+      <change beforePath="$PROJECT_DIR$/web/templates/index.html" afterPath="$PROJECT_DIR$/web/templates/index.html" />
+      <change beforePath="$PROJECT_DIR$/web/templates/lesson_list.html" afterPath="$PROJECT_DIR$/web/templates/lesson_list.html" />
+      <change beforePath="$PROJECT_DIR$/web/urls.py" afterPath="$PROJECT_DIR$/web/urls.py" />
       <change beforePath="$PROJECT_DIR$/web/views.py" afterPath="$PROJECT_DIR$/web/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,29 +31,6 @@
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="@localhost" type="feb32156:DbDataSourceImpl" />
       </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="astolfo_hotel: schema" type="c314c289:MysqlImplModel$Schema" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="enihsyou: schema" type="c314c289:MysqlImplModel$Schema" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="istudy: schema" type="c314c289:MysqlImplModel$Schema" />
-      </path>
     </expand>
     <select />
   </component>
@@ -74,19 +49,17 @@
         <splitter split-orientation="horizontal" split-proportion="0.5">
           <split-first>
             <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-              <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+              <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/web/views.py">
                   <provider selected="true" editor-type-id="live-pycharm">
                     <state split_layout="FIRST">
-                      <first_editor relative-caret-position="-42">
-                        <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                      <first_editor relative-caret-position="562">
+                        <caret line="71" column="25" lean-forward="false" selection-start-line="71" selection-start-column="25" selection-end-line="71" selection-end-column="25" />
                         <folding>
-                          <element signature="e#0#66#0" expanded="true" />
-                          <element signature="e#1956#2265#0" expanded="true" />
-                          <element signature="e#2486#2666#0" expanded="true" />
+                          <element signature="e#0#57#0" expanded="true" />
                         </folding>
                       </first_editor>
-                      <second_editor relative-caret-position="-42">
+                      <second_editor relative-caret-position="-66">
                         <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
                         <folding />
                       </second_editor>
@@ -94,48 +67,14 @@
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="admin.py" pinned="false" current-in-tab="true">
+              <file leaf-file-name="admin.py" pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/web/admin.py">
                   <provider selected="true" editor-type-id="live-pycharm">
                     <state split_layout="FIRST">
-                      <first_editor relative-caret-position="726">
-                        <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+                      <first_editor relative-caret-position="528">
+                        <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
                         <folding>
                           <element signature="e#0#32#0" expanded="true" />
-                        </folding>
-                      </first_editor>
-                      <second_editor relative-caret-position="0">
-                        <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                        <folding />
-                      </second_editor>
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/istudy/urls.py">
-                  <provider selected="true" editor-type-id="live-pycharm">
-                    <state split_layout="FIRST">
-                      <first_editor relative-caret-position="0">
-                        <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                        <folding />
-                      </first_editor>
-                      <second_editor relative-caret-position="0">
-                        <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                        <folding />
-                      </second_editor>
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/django/contrib/auth/models.py">
-                  <provider selected="true" editor-type-id="live-pycharm">
-                    <state split_layout="FIRST">
-                      <first_editor relative-caret-position="951">
-                        <caret line="327" column="31" lean-forward="false" selection-start-line="327" selection-start-column="31" selection-end-line="327" selection-end-column="31" />
-                        <folding>
-                          <element signature="e#0#31#0" expanded="true" />
                         </folding>
                       </first_editor>
                       <second_editor relative-caret-position="-66">
@@ -150,8 +89,8 @@
                 <entry file="file://$PROJECT_DIR$/web/form.py">
                   <provider selected="true" editor-type-id="live-pycharm">
                     <state split_layout="FIRST">
-                      <first_editor relative-caret-position="638">
-                        <caret line="34" column="30" lean-forward="false" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
+                      <first_editor relative-caret-position="616">
+                        <caret line="33" column="6" lean-forward="false" selection-start-line="33" selection-start-column="6" selection-end-line="33" selection-end-column="6" />
                         <folding />
                       </first_editor>
                       <second_editor relative-caret-position="0">
@@ -162,18 +101,32 @@
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="base_user.py" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/django/contrib/auth/base_user.py">
-                  <provider selected="true" editor-type-id="live-pycharm">
-                    <state split_layout="FIRST">
-                      <first_editor relative-caret-position="424">
-                        <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-                        <folding />
-                      </first_editor>
-                      <second_editor relative-caret-position="-66">
-                        <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                        <folding />
-                      </second_editor>
+              <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/web/templates/login.html">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="0">
+                      <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                      <folding />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="signup.html" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/web/templates/signup.html">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="0">
+                      <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                      <folding />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/web/templates/index.html">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="550">
+                      <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="2" selection-end-line="27" selection-end-column="8" />
+                      <folding />
                     </state>
                   </provider>
                 </entry>
@@ -182,12 +135,12 @@
           </split-first>
           <split-second>
             <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-              <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
+              <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/web/models.py">
                   <provider selected="true" editor-type-id="live-pycharm">
                     <state split_layout="FIRST">
-                      <first_editor relative-caret-position="437">
-                        <caret line="109" column="39" lean-forward="true" selection-start-line="109" selection-start-column="39" selection-end-line="109" selection-end-column="39" />
+                      <first_editor relative-caret-position="2244">
+                        <caret line="109" column="39" lean-forward="false" selection-start-line="109" selection-start-column="39" selection-end-line="109" selection-end-column="39" />
                         <folding>
                           <element signature="e#0#58#0" expanded="true" />
                           <element signature="e#549#570#0" expanded="true" />
@@ -212,11 +165,11 @@
                 <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/django/forms/models.py">
                   <provider selected="true" editor-type-id="live-pycharm">
                     <state split_layout="FIRST">
-                      <first_editor relative-caret-position="645">
+                      <first_editor relative-caret-position="2156">
                         <caret line="265" column="0" lean-forward="false" selection-start-line="265" selection-start-column="0" selection-end-line="265" selection-end-column="0" />
                         <folding />
                       </first_editor>
-                      <second_editor relative-caret-position="-66">
+                      <second_editor relative-caret-position="0">
                         <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
                         <folding />
                       </second_editor>
@@ -228,9 +181,98 @@
                 <entry file="file://$PROJECT_DIR$/istudy/settings.py">
                   <provider selected="true" editor-type-id="live-pycharm">
                     <state split_layout="FIRST">
-                      <first_editor relative-caret-position="872">
+                      <first_editor relative-caret-position="1232">
                         <caret line="56" column="53" lean-forward="false" selection-start-line="56" selection-start-column="53" selection-end-line="56" selection-end-column="53" />
                         <folding />
+                      </first_editor>
+                      <second_editor relative-caret-position="0">
+                        <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                        <folding />
+                      </second_editor>
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/web/templates/index.html">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="660">
+                      <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+                      <folding />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/django/contrib/auth/views.py">
+                  <provider selected="true" editor-type-id="live-pycharm">
+                    <state split_layout="FIRST">
+                      <first_editor relative-caret-position="158">
+                        <caret line="61" column="35" lean-forward="false" selection-start-line="61" selection-start-column="35" selection-end-line="61" selection-end-column="35" />
+                        <folding>
+                          <element signature="e#1471#1602#0" expanded="true" />
+                          <element signature="e#1665#1732#1" expanded="false" />
+                          <element signature="e#2676#2768#0" expanded="true" />
+                          <element signature="e#2810#3266#0" expanded="true" />
+                          <element signature="e#3536#3693#0" expanded="true" />
+                          <element signature="e#3745#4133#0" expanded="true" />
+                          <element signature="e#3867#4019#0" expanded="false" />
+                          <element signature="e#4849#4927#1" expanded="false" />
+                          <element signature="e#5261#5371#0" expanded="false" />
+                          <element signature="e#5990#6528#0" expanded="false" />
+                          <element signature="e#6364#6430#0" expanded="false" />
+                          <element signature="e#6727#6854#0" expanded="false" />
+                          <element signature="e#7152#7493#0" expanded="true" />
+                          <element signature="e#7596#7684#1" expanded="false" />
+                          <element signature="e#7732#7886#0" expanded="false" />
+                          <element signature="e#7759#7850#0" expanded="false" />
+                          <element signature="e#8140#8223#1" expanded="false" />
+                          <element signature="e#8376#8542#0" expanded="false" />
+                          <element signature="e#8607#8636#0" expanded="false" />
+                          <element signature="e#9528#9630#0" expanded="false" />
+                          <element signature="e#9901#10529#0" expanded="false" />
+                          <element signature="e#9982#10529#0" expanded="false" />
+                          <element signature="e#9989#10438#0" expanded="false" />
+                          <element signature="e#10591#10658#0" expanded="false" />
+                          <element signature="e#10970#11081#0" expanded="false" />
+                          <element signature="e#11155#11205#0" expanded="false" />
+                          <element signature="e#11824#11931#1" expanded="false" />
+                          <element signature="e#11950#12067#0" expanded="false" />
+                          <element signature="e#12392#12546#0" expanded="false" />
+                          <element signature="e#12721#13053#0" expanded="false" />
+                          <element signature="e#12827#12996#0" expanded="false" />
+                          <element signature="e#12920#12996#0" expanded="false" />
+                          <element signature="e#13072#13158#0" expanded="false" />
+                          <element signature="e#13173#13258#0" expanded="false" />
+                          <element signature="e#13586#13705#0" expanded="false" />
+                          <element signature="e#13779#13887#0" expanded="false" />
+                          <element signature="e#14024#14058#0" expanded="false" />
+                          <element signature="e#14358#14625#0" expanded="false" />
+                          <element signature="e#14689#15832#0" expanded="false" />
+                          <element signature="e#15313#15766#0" expanded="false" />
+                          <element signature="e#16003#16095#0" expanded="false" />
+                          <element signature="e#16166#19025#0" expanded="false" />
+                          <element signature="e#16778#17786#0" expanded="false" />
+                          <element signature="e#16868#17198#0" expanded="false" />
+                          <element signature="e#17038#17198#0" expanded="false" />
+                          <element signature="e#17233#17786#0" expanded="false" />
+                          <element signature="e#17308#17786#0" expanded="false" />
+                          <element signature="e#17308#17360#0" expanded="false" />
+                          <element signature="e#17968#18130#0" expanded="false" />
+                          <element signature="e#18846#19002#0" expanded="false" />
+                          <element signature="e#18861#19001#0" expanded="false" />
+                          <element signature="e#19101#19383#0" expanded="false" />
+                          <element signature="e#19717#19821#0" expanded="false" />
+                          <element signature="e#20097#20448#0" expanded="false" />
+                          <element signature="e#20203#20448#0" expanded="false" />
+                          <element signature="e#20227#20291#0" expanded="false" />
+                          <element signature="e#20528#20596#0" expanded="false" />
+                          <element signature="e#20928#21041#0" expanded="false" />
+                          <element signature="e#21115#21172#0" expanded="false" />
+                          <element signature="e#21371#22165#0" expanded="false" />
+                          <element signature="e#21969#22033#0" expanded="false" />
+                          <element signature="e#22238#22467#0" expanded="false" />
+                        </folding>
                       </first_editor>
                       <second_editor relative-caret-position="-66">
                         <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -240,32 +282,18 @@
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="course_create.html" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/web/templates/course_create.html">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="0">
-                      <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                      <folding />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="lesson_list.html" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/web/templates/lesson_list.html">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="0">
-                      <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                      <folding />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/web/templates/index.html">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="418">
-                      <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-                      <folding />
+              <file leaf-file-name="edit.py" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/django/views/generic/edit.py">
+                  <provider selected="true" editor-type-id="live-pycharm">
+                    <state split_layout="FIRST">
+                      <first_editor relative-caret-position="1254">
+                        <caret line="155" column="31" lean-forward="false" selection-start-line="155" selection-start-column="31" selection-end-line="155" selection-end-column="31" />
+                        <folding />
+                      </first_editor>
+                      <second_editor relative-caret-position="0">
+                        <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                        <folding />
+                      </second_editor>
                     </state>
                   </provider>
                 </entry>
@@ -282,13 +310,13 @@
                 <entry file="file://$PROJECT_DIR$/web/urls.py">
                   <provider selected="true" editor-type-id="live-pycharm">
                     <state split_layout="FIRST">
-                      <first_editor relative-caret-position="6">
-                        <caret line="24" column="78" lean-forward="false" selection-start-line="24" selection-start-column="78" selection-end-line="24" selection-end-column="78" />
+                      <first_editor relative-caret-position="400">
+                        <caret line="19" column="16" lean-forward="false" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
                         <folding>
                           <element signature="e#24#56#0" expanded="true" />
                         </folding>
                       </first_editor>
-                      <second_editor relative-caret-position="-66">
+                      <second_editor relative-caret-position="-18">
                         <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
                         <folding />
                       </second_editor>
@@ -366,7 +394,7 @@
                 <entry file="file://$PROJECT_DIR$/web/admin.py">
                   <provider selected="true" editor-type-id="live-pycharm">
                     <state split_layout="FIRST">
-                      <first_editor relative-caret-position="4">
+                      <first_editor relative-caret-position="22">
                         <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
                         <folding />
                       </first_editor>
@@ -449,12 +477,10 @@
         <option value="$PROJECT_DIR$/courses/urls.py" />
         <option value="$PROJECT_DIR$/teaching_group/models.py" />
         <option value="$PROJECT_DIR$/courses/models.py" />
-        <option value="$PROJECT_DIR$/web/templates/index.html" />
         <option value="$PROJECT_DIR$/web/templates/course_form.html" />
         <option value="$PROJECT_DIR$/templates/web/course_update_form.html" />
         <option value="$PROJECT_DIR$/templates/web/course_list.html" />
         <option value="$PROJECT_DIR$/templates/web/course_confirm_delete.html" />
-        <option value="$PROJECT_DIR$/web/urls.py" />
         <option value="$PROJECT_DIR$/web/templates/student_signup.html" />
         <option value="$PROJECT_DIR$/web/templates/base.html" />
         <option value="$PROJECT_DIR$/venv/.gitignore" />
@@ -465,9 +491,13 @@
         <option value="$PROJECT_DIR$/templates/board_base.html" />
         <option value="$PROJECT_DIR$/istudy/settings.py" />
         <option value="$PROJECT_DIR$/web/form.py" />
-        <option value="$PROJECT_DIR$/web/views.py" />
         <option value="$PROJECT_DIR$/web/admin.py" />
         <option value="$PROJECT_DIR$/web/models.py" />
+        <option value="$PROJECT_DIR$/web/templates/course_list.html" />
+        <option value="$PROJECT_DIR$/web/templates/lesson_list.html" />
+        <option value="$PROJECT_DIR$/web/urls.py" />
+        <option value="$PROJECT_DIR$/web/templates/index.html" />
+        <option value="$PROJECT_DIR$/web/views.py" />
       </list>
     </option>
   </component>
@@ -541,8 +571,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -606,6 +634,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -870,36 +900,42 @@
       <option name="project" value="LOCAL" />
       <updated>1513573686331</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="admin part">
+      <created>1513596076187</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1513596076187</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="32" width="3856" height="2136" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977208" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16253164" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2050633" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20202531" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16253164" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32949728" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.088794924" sideWeight="0.49822783" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="manage.py@istudy" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1721519" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.09011628" sideWeight="0.49822783" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.088002115" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962024" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298479" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.088794924" sideWeight="0.50177217" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20455696" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="manage.py@istudy" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1721519" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962024" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -942,11 +978,12 @@
     <MESSAGE value="init" />
     <MESSAGE value="基础结构" />
     <MESSAGE value="upload" />
-    <option name="LAST_COMMIT_MESSAGE" value="upload" />
+    <MESSAGE value="admin part" />
+    <option name="LAST_COMMIT_MESSAGE" value="admin part" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="6" />
+      <option name="time" value="8" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -975,42 +1012,104 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web/templates/student_detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/templates/student_signup.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="11" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/templates/student_logout.html">
+    <entry file="file://Y:/django-machina/example_project/example/templates/registration/login.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/web/course_form.html">
+    <entry file="file://Y:/django-machina/README.rst">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="-378">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/django/forms/forms.py">
+    <entry file="file://$PROJECT_DIR$/templates/registration/login.html" />
+    <entry file="file://$PROJECT_DIR$/templates/~gvfA22K.tmp" />
+    <entry file="file://$PROJECT_DIR$/istudy/~gvf4ynJ.tmp" />
+    <entry file="file://$PROJECT_DIR$/templates/registration/unregister.html" />
+    <entry file="file://$PROJECT_DIR$/templates/registration/~gvf3PD7.tmp" />
+    <entry file="file://$PROJECT_DIR$/templates/web/~gvfUQ4i.tmp" />
+    <entry file="file://$PROJECT_DIR$/web/templates/course_create.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base.html" />
+    <entry file="file://$PROJECT_DIR$/templates/board_base.html" />
+    <entry file="das://table:/7fe0159a/67599bb5-4ed8-4d27-b47a-7b6c43b72b67/istudy.django_migrations">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/migrations/0001_initial.py">
+      <provider selected="true" editor-type-id="live-pycharm">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="0">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          </first_editor>
+          <second_editor relative-caret-position="0">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/istudy_schema.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/manage.py">
+      <provider selected="true" editor-type-id="live-pycharm">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="0">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          </first_editor>
+          <second_editor relative-caret-position="0">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/static/modo1/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-130">
+          <caret line="6" column="91" lean-forward="false" selection-start-line="6" selection-start-column="91" selection-end-line="6" selection-end-column="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/static/modo1/js/sign.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/django/db/models/fields/reverse_related.py">
+      <provider selected="true" editor-type-id="live-pycharm">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="-10">
+            <caret line="109" column="17" lean-forward="true" selection-start-line="109" selection-start-column="17" selection-end-line="109" selection-end-column="17" />
+          </first_editor>
+          <second_editor relative-caret-position="-66">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/django/utils/translation/__init__.py">
       <provider selected="true" editor-type-id="live-pycharm">
         <state split_layout="FIRST">
           <first_editor relative-caret-position="402">
-            <caret line="403" column="0" lean-forward="false" selection-start-line="403" selection-start-column="0" selection-end-line="403" selection-end-column="0" />
+            <caret line="99" column="0" lean-forward="false" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
             <folding />
           </first_editor>
           <second_editor relative-caret-position="-66">
@@ -1020,15 +1119,105 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/MySQLdb/connections.py">
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/django/contrib/admin/options.py">
       <provider selected="true" editor-type-id="live-pycharm">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="402">
-            <caret line="276" column="0" lean-forward="false" selection-start-line="276" selection-start-column="0" selection-end-line="276" selection-end-column="0" />
+          <first_editor relative-caret-position="393">
+            <caret line="1844" column="6" lean-forward="false" selection-start-line="1844" selection-start-column="6" selection-end-line="1844" selection-end-column="6" />
+            <folding />
+          </first_editor>
+          <second_editor relative-caret-position="-66">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <folding />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/7fe0159a/67599bb5-4ed8-4d27-b47a-7b6c43b72b67/istudy.web_question">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/django/contrib/auth/admin.py">
+      <provider selected="true" editor-type-id="live-pycharm">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="816">
+            <caret line="63" column="55" lean-forward="true" selection-start-line="43" selection-start-column="4" selection-end-line="63" selection-end-column="55" />
+          </first_editor>
+          <second_editor relative-caret-position="-42">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/django/contrib/auth/models.py">
+      <provider selected="true" editor-type-id="live-pycharm">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="951">
+            <caret line="327" column="31" lean-forward="false" selection-start-line="327" selection-start-column="31" selection-end-line="327" selection-end-column="31" />
           </first_editor>
           <second_editor relative-caret-position="-66">
             <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/django/contrib/auth/base_user.py">
+      <provider selected="true" editor-type-id="live-pycharm">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="424">
+            <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+          </first_editor>
+          <second_editor relative-caret-position="-66">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/django/db/models/fields/__init__.py">
+      <provider selected="true" editor-type-id="live-pycharm">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="402">
+            <caret line="1776" column="6" lean-forward="false" selection-start-line="1776" selection-start-column="6" selection-end-line="1776" selection-end-column="6" />
+            <folding />
+          </first_editor>
+          <second_editor relative-caret-position="-66">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <folding />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2017.3/system/python_stubs/-1273438320/builtins.py">
+      <provider selected="true" editor-type-id="live-pycharm">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="696">
+            <caret line="1002" column="8" lean-forward="false" selection-start-line="1002" selection-start-column="8" selection-end-line="1002" selection-end-column="8" />
+          </first_editor>
+          <second_editor relative-caret-position="-66">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/django/contrib/auth/forms.py">
+      <provider selected="true" editor-type-id="live-pycharm">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="402">
+            <caret line="63" column="6" lean-forward="false" selection-start-line="63" selection-start-column="6" selection-end-line="63" selection-end-column="6" />
+          </first_editor>
+          <second_editor relative-caret-position="-60">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/7fe0159a/67599bb5-4ed8-4d27-b47a-7b6c43b72b67/istudy.auth_user">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -1036,7 +1225,7 @@
       <provider selected="true" editor-type-id="live-pycharm">
         <state split_layout="FIRST">
           <first_editor relative-caret-position="402">
-            <caret line="144" column="6" lean-forward="false" selection-start-line="144" selection-start-column="6" selection-end-line="144" selection-end-column="6" />
+            <caret line="108" column="6" lean-forward="false" selection-start-line="108" selection-start-column="6" selection-end-line="108" selection-end-column="6" />
             <folding />
           </first_editor>
           <second_editor relative-caret-position="-66">
@@ -1046,36 +1235,83 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/django/forms/fields.py">
+    <entry file="file://$PROJECT_DIR$/web/templates/lesson_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/templates/course_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="20" lean-forward="true" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/templates/logout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/form.py">
       <provider selected="true" editor-type-id="live-pycharm">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="-702">
-            <caret line="207" column="23" lean-forward="false" selection-start-line="207" selection-start-column="23" selection-end-line="207" selection-end-column="23" />
+          <first_editor relative-caret-position="616">
+            <caret line="33" column="6" lean-forward="false" selection-start-line="33" selection-start-column="6" selection-end-line="33" selection-end-column="6" />
             <folding />
           </first_editor>
-          <second_editor relative-caret-position="-66">
+          <second_editor relative-caret-position="0">
             <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
             <folding />
           </second_editor>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/templates/student_login.html">
+    <entry file="file://$PROJECT_DIR$/web/templates/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="3" column="16" lean-forward="false" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/django/contrib/auth/__init__.py">
+    <entry file="file://$PROJECT_DIR$/web/templates/signup.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/istudy/urls.py">
       <provider selected="true" editor-type-id="live-pycharm">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="638">
-            <caret line="117" column="39" lean-forward="false" selection-start-line="117" selection-start-column="39" selection-end-line="117" selection-end-column="39" />
+          <first_editor relative-caret-position="0">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          </first_editor>
+          <second_editor relative-caret-position="0">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/7fe0159a/67599bb5-4ed8-4d27-b47a-7b6c43b72b67/istudy.web_student">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/views.py">
+      <provider selected="true" editor-type-id="live-pycharm">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="562">
+            <caret line="71" column="25" lean-forward="false" selection-start-line="71" selection-start-column="25" selection-end-line="71" selection-end-column="25" />
             <folding>
-              <element signature="e#2079#2820#0" expanded="false" />
-              <element signature="e#4261#5970#0" expanded="false" />
+              <element signature="e#0#57#0" expanded="true" />
             </folding>
           </first_editor>
           <second_editor relative-caret-position="-66">
@@ -1085,128 +1321,99 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://Y:/django-machina/example_project/example/templates/registration/login.html">
+    <entry file="file://$PROJECT_DIR$/web/models.py">
+      <provider selected="true" editor-type-id="live-pycharm">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="2244">
+            <caret line="109" column="39" lean-forward="false" selection-start-line="109" selection-start-column="39" selection-end-line="109" selection-end-column="39" />
+            <folding>
+              <element signature="e#0#58#0" expanded="true" />
+              <element signature="e#549#570#0" expanded="true" />
+              <element signature="e#1383#1404#0" expanded="true" />
+              <element signature="e#1869#1890#0" expanded="true" />
+              <element signature="e#2744#2765#0" expanded="true" />
+              <element signature="e#3377#3410#0" expanded="true" />
+              <element signature="e#3665#3697#0" expanded="true" />
+              <element signature="e#3730#3752#0" expanded="true" />
+              <element signature="e#4130#4152#0" expanded="true" />
+            </folding>
+          </first_editor>
+          <second_editor relative-caret-position="-66">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <folding />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/django/forms/models.py">
+      <provider selected="true" editor-type-id="live-pycharm">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="2156">
+            <caret line="265" column="0" lean-forward="false" selection-start-line="265" selection-start-column="0" selection-end-line="265" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor relative-caret-position="0">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <folding />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/istudy/settings.py">
+      <provider selected="true" editor-type-id="live-pycharm">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="1232">
+            <caret line="56" column="53" lean-forward="false" selection-start-line="56" selection-start-column="53" selection-end-line="56" selection-end-column="53" />
+            <folding />
+          </first_editor>
+          <second_editor relative-caret-position="0">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <folding />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="550">
+          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="2" selection-end-line="27" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://Y:/django-machina/README.rst">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-378">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/registration/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="19" column="30" lean-forward="false" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/~gvfA22K.tmp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/istudy/~gvf4ynJ.tmp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/registration/unregister.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/registration/~gvf3PD7.tmp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/web/~gvfUQ4i.tmp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/templates/course_create.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/templates/lesson_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/web/course_update_form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="11" lean-forward="false" selection-start-line="0" selection-start-column="11" selection-end-line="0" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="34" lean-forward="false" selection-start-line="0" selection-start-column="34" selection-end-line="0" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/board_base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/django/views/generic/edit.py">
+      <provider selected="true" editor-type-id="live-pycharm">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="1254">
+            <caret line="155" column="31" lean-forward="false" selection-start-line="155" selection-start-column="31" selection-end-line="155" selection-end-column="31" />
+            <folding />
+          </first_editor>
+          <second_editor relative-caret-position="0">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <folding />
+          </second_editor>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/django/contrib/auth/views.py">
       <provider selected="true" editor-type-id="live-pycharm">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="704">
-            <caret line="106" column="22" lean-forward="false" selection-start-line="48" selection-start-column="21" selection-end-line="48" selection-end-column="44" />
+          <first_editor relative-caret-position="158">
+            <caret line="61" column="35" lean-forward="false" selection-start-line="61" selection-start-column="35" selection-end-line="61" selection-end-column="35" />
             <folding>
-              <element signature="e#1383#1602#0" expanded="false" />
+              <element signature="e#1471#1602#0" expanded="true" />
               <element signature="e#1665#1732#1" expanded="false" />
-              <element signature="e#2226#2577#0" expanded="false" />
-              <element signature="e#2328#2524#0" expanded="false" />
-              <element signature="e#2366#2506#0" expanded="false" />
+              <element signature="e#2676#2768#0" expanded="true" />
+              <element signature="e#2810#3266#0" expanded="true" />
+              <element signature="e#3536#3693#0" expanded="true" />
+              <element signature="e#3745#4133#0" expanded="true" />
               <element signature="e#3867#4019#0" expanded="false" />
-              <element signature="e#4849#6968#0" expanded="false" />
               <element signature="e#4849#4927#1" expanded="false" />
               <element signature="e#5261#5371#0" expanded="false" />
               <element signature="e#5990#6528#0" expanded="false" />
               <element signature="e#6364#6430#0" expanded="false" />
               <element signature="e#6727#6854#0" expanded="false" />
+              <element signature="e#7152#7493#0" expanded="true" />
               <element signature="e#7596#7684#1" expanded="false" />
               <element signature="e#7732#7886#0" expanded="false" />
               <element signature="e#7759#7850#0" expanded="false" />
@@ -1258,39 +1465,18 @@
               <element signature="e#22238#22467#0" expanded="false" />
             </folding>
           </first_editor>
-          <second_editor relative-caret-position="0">
+          <second_editor relative-caret-position="-66">
             <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
             <folding />
           </second_editor>
         </state>
       </provider>
     </entry>
-    <entry file="das://table:/7fe0159a/67599bb5-4ed8-4d27-b47a-7b6c43b72b67/istudy.web_student">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/7fe0159a/67599bb5-4ed8-4d27-b47a-7b6c43b72b67/istudy.django_migrations">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/7fe0159a/67599bb5-4ed8-4d27-b47a-7b6c43b72b67/istudy.auth_user">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/migrations/0001_initial.py">
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/django/core/management/base.py">
       <provider selected="true" editor-type-id="live-pycharm">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <first_editor relative-caret-position="5126">
+            <caret line="409" column="0" lean-forward="false" selection-start-line="409" selection-start-column="0" selection-end-line="409" selection-end-column="0" />
             <folding />
           </first_editor>
           <second_editor relative-caret-position="0">
@@ -1300,19 +1486,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/istudy_schema.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/manage.py">
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/django/core/management/commands/runserver.py">
       <provider selected="true" editor-type-id="live-pycharm">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <first_editor relative-caret-position="990">
+            <caret line="119" column="0" lean-forward="false" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
             <folding />
           </first_editor>
           <second_editor relative-caret-position="0">
@@ -1322,249 +1500,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/static/modo1/index.html">
+    <entry file="file://$PROJECT_DIR$/templates/web/course_form.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-130">
-          <caret line="6" column="91" lean-forward="false" selection-start-line="6" selection-start-column="91" selection-end-line="6" selection-end-column="91" />
+        <state relative-caret-position="66">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/static/modo1/js/sign.js">
+    <entry file="file://$PROJECT_DIR$/templates/web/course_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="29" lean-forward="false" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/web/course_update_form.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="0" column="11" lean-forward="false" selection-start-line="0" selection-start-column="11" selection-end-line="0" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/django/db/models/fields/reverse_related.py">
+    <entry file="file://$PROJECT_DIR$/web/admin.py">
       <provider selected="true" editor-type-id="live-pycharm">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="-10">
-            <caret line="109" column="17" lean-forward="true" selection-start-line="109" selection-start-column="17" selection-end-line="109" selection-end-column="17" />
-            <folding />
-          </first_editor>
-          <second_editor relative-caret-position="-66">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/django/utils/translation/__init__.py">
-      <provider selected="true" editor-type-id="live-pycharm">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="402">
-            <caret line="99" column="0" lean-forward="false" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor relative-caret-position="-66">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/istudy/settings.py">
-      <provider selected="true" editor-type-id="live-pycharm">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="872">
-            <caret line="56" column="53" lean-forward="false" selection-start-line="56" selection-start-column="53" selection-end-line="56" selection-end-column="53" />
-            <folding />
-          </first_editor>
-          <second_editor relative-caret-position="-66">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/django/contrib/admin/options.py">
-      <provider selected="true" editor-type-id="live-pycharm">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="393">
-            <caret line="1844" column="6" lean-forward="false" selection-start-line="1844" selection-start-column="6" selection-end-line="1844" selection-end-column="6" />
-            <folding />
-          </first_editor>
-          <second_editor relative-caret-position="-66">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/7fe0159a/67599bb5-4ed8-4d27-b47a-7b6c43b72b67/istudy.web_question">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/django/contrib/auth/admin.py">
-      <provider selected="true" editor-type-id="live-pycharm">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="816">
-            <caret line="63" column="55" lean-forward="true" selection-start-line="43" selection-start-column="4" selection-end-line="63" selection-end-column="55" />
-            <folding />
-          </first_editor>
-          <second_editor relative-caret-position="-42">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/istudy/urls.py">
-      <provider selected="true" editor-type-id="live-pycharm">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/django/forms/models.py">
-      <provider selected="true" editor-type-id="live-pycharm">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="645">
-            <caret line="265" column="0" lean-forward="false" selection-start-line="265" selection-start-column="0" selection-end-line="265" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor relative-caret-position="-66">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/django/contrib/auth/models.py">
-      <provider selected="true" editor-type-id="live-pycharm">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="951">
-            <caret line="327" column="31" lean-forward="false" selection-start-line="327" selection-start-column="31" selection-end-line="327" selection-end-column="31" />
+          <first_editor relative-caret-position="528">
+            <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
             <folding>
-              <element signature="e#0#31#0" expanded="true" />
+              <element signature="e#0#32#0" expanded="true" />
             </folding>
           </first_editor>
           <second_editor relative-caret-position="-66">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/django/contrib/auth/forms.py">
-      <provider selected="true" editor-type-id="live-pycharm">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="858">
-            <caret line="86" column="0" lean-forward="false" selection-start-line="86" selection-start-column="0" selection-end-line="87" selection-end-column="51" />
-            <folding>
-              <element signature="e#766#1531#0" expanded="false" />
-              <element signature="e#1114#1471#0" expanded="false" />
-              <element signature="e#1340#1471#0" expanded="false" />
-              <element signature="e#1799#1849#0" expanded="false" />
-              <element signature="e#2014#2112#0" expanded="false" />
-              <element signature="e#2160#2265#1" expanded="false" />
-              <element signature="e#2287#2367#0" expanded="false" />
-              <element signature="e#3363#3505#0" expanded="false" />
-              <element signature="e#3597#3666#0" expanded="false" />
-              <element signature="e#3776#3961#0" expanded="false" />
-              <element signature="e#5256#5377#1" expanded="false" />
-              <element signature="e#5643#5865#0" expanded="false" />
-              <element signature="e#5685#5796#0" expanded="false" />
-              <element signature="e#5930#6081#1" expanded="false" />
-              <element signature="e#6643#7541#0" expanded="false" />
-              <element signature="e#6782#7463#0" expanded="false" />
-              <element signature="e#6782#6842#0" expanded="false" />
-              <element signature="e#7628#8045#1" expanded="false" />
-              <element signature="e#8089#8213#0" expanded="false" />
-              <element signature="e#8644#8729#1" expanded="false" />
-              <element signature="e#9121#9262#0" expanded="false" />
-              <element signature="e#9334#9603#1" expanded="false" />
-              <element signature="e#9663#9773#0" expanded="false" />
-              <element signature="e#10232#10340#1" expanded="false" />
-              <element signature="e#10439#11350#0" expanded="false" />
-              <element signature="e#10479#10610#0" expanded="false" />
-              <element signature="e#10704#11053#0" expanded="false" />
-              <element signature="e#11392#12762#0" expanded="false" />
-              <element signature="e#11392#11495#1" expanded="false" />
-              <element signature="e#11517#11597#0" expanded="false" />
-              <element signature="e#12270#12467#0" expanded="false" />
-              <element signature="e#12313#12467#0" expanded="false" />
-              <element signature="e#12812#13722#0" expanded="false" />
-              <element signature="e#12812#12909#1" expanded="false" />
-              <element signature="e#12970#13079#0" expanded="false" />
-              <element signature="e#13353#13425#1" expanded="false" />
-              <element signature="e#13550#13694#0" expanded="false" />
-              <element signature="e#13772#15462#0" expanded="false" />
-              <element signature="e#13772#13856#1" expanded="false" />
-              <element signature="e#13878#13958#0" expanded="false" />
-              <element signature="e#14738#14935#0" expanded="false" />
-              <element signature="e#14781#14935#0" expanded="false" />
-              <element signature="e#15388#15434#0" expanded="false" />
-            </folding>
-          </first_editor>
-          <second_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/django/contrib/auth/base_user.py">
-      <provider selected="true" editor-type-id="live-pycharm">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="424">
-            <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor relative-caret-position="-66">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/form.py">
-      <provider selected="true" editor-type-id="live-pycharm">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="638">
-            <caret line="34" column="30" lean-forward="false" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
-            <folding />
-          </first_editor>
-          <second_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/views.py">
-      <provider selected="true" editor-type-id="live-pycharm">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="-42">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding>
-              <element signature="e#0#66#0" expanded="true" />
-              <element signature="e#1956#2265#0" expanded="true" />
-              <element signature="e#2486#2666#0" expanded="true" />
-            </folding>
-          </first_editor>
-          <second_editor relative-caret-position="-42">
             <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
             <folding />
           </second_editor>
@@ -1574,83 +1543,13 @@
     <entry file="file://$PROJECT_DIR$/web/urls.py">
       <provider selected="true" editor-type-id="live-pycharm">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="6">
-            <caret line="24" column="78" lean-forward="false" selection-start-line="24" selection-start-column="78" selection-end-line="24" selection-end-column="78" />
+          <first_editor relative-caret-position="400">
+            <caret line="19" column="16" lean-forward="false" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
             <folding>
               <element signature="e#24#56#0" expanded="true" />
             </folding>
           </first_editor>
-          <second_editor relative-caret-position="-66">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/django/db/models/fields/__init__.py">
-      <provider selected="true" editor-type-id="live-pycharm">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="402">
-            <caret line="1776" column="6" lean-forward="false" selection-start-line="1776" selection-start-column="6" selection-end-line="1776" selection-end-column="6" />
-            <folding />
-          </first_editor>
-          <second_editor relative-caret-position="-66">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharm2017.3/system/python_stubs/-1273438320/builtins.py">
-      <provider selected="true" editor-type-id="live-pycharm">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="696">
-            <caret line="1002" column="8" lean-forward="false" selection-start-line="1002" selection-start-column="8" selection-end-line="1002" selection-end-column="8" />
-            <folding>
-              <element signature="e#34780#34994#0" expanded="true" />
-            </folding>
-          </first_editor>
-          <second_editor relative-caret-position="-66">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/models.py">
-      <provider selected="true" editor-type-id="live-pycharm">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="437">
-            <caret line="109" column="39" lean-forward="true" selection-start-line="109" selection-start-column="39" selection-end-line="109" selection-end-column="39" />
-            <folding>
-              <element signature="e#0#58#0" expanded="true" />
-              <element signature="e#549#570#0" expanded="true" />
-              <element signature="e#1383#1404#0" expanded="true" />
-              <element signature="e#1869#1890#0" expanded="true" />
-              <element signature="e#2744#2765#0" expanded="true" />
-              <element signature="e#3377#3410#0" expanded="true" />
-              <element signature="e#3665#3697#0" expanded="true" />
-              <element signature="e#3730#3752#0" expanded="true" />
-              <element signature="e#4130#4152#0" expanded="true" />
-            </folding>
-          </first_editor>
-          <second_editor relative-caret-position="-66">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/admin.py">
-      <provider selected="true" editor-type-id="live-pycharm">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="726">
-            <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-            <folding>
-              <element signature="e#0#32#0" expanded="true" />
-            </folding>
-          </first_editor>
-          <second_editor relative-caret-position="0">
+          <second_editor relative-caret-position="-18">
             <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
             <folding />
           </second_editor>
