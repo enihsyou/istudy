@@ -1,8 +1,9 @@
+{% extends 'base.html' %}
 {% block content %}
   <p>更新课程信息</p>
 
   <form action="" method="post">
-    {% csrf_token %} {{ form.as_p }}
+    {% csrf_token %} {{ form.as_ul }}
     <input type="submit" value="Save"/>
   </form>
 

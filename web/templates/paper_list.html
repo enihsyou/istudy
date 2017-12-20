@@ -1,14 +1,19 @@
 {% extends 'base.html' %}
 {% block content %}
-  <h1>试卷列表</h1>
-  <ul>
-    {% for paper in paper_list %}
-      <li>
-        <a href="{% url 'paper_detail' paper.id %}">{{ paper.title }}</a>
-        : {{ paper.question_count }}
-      </li>
-    {% endfor %}
-  </ul>
-
-  <a href="{% url 'paper_create' %}">新建试卷</a>
+  {% if course_list|length > 0 %}
+    <h1>试卷列表</h1>
+    <ul class="paper_list">
+      {% for paper in paper_list %}
+        <li class="paper_list_item">
+          <a class="paper_title" href="{% url 'paper_detail' paper.id %}">{{ paper.title }}</a>
+          <span class="number_count">{{ paper.question_count }}</span>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <h1>现在还没有试卷 小小开心一下吧</h1>
+    {% if teacher %}
+      <a href="{% url 'paper_create' %}">新建试卷</a>
+    {% endif %}
+  {% endif %}
 {% endblock %}

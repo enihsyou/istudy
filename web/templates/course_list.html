@@ -1,23 +1,45 @@
 {% extends 'base.html' %}
-{% block content %}
+{% block header %}
+  {% if teacher %}
+    <title>{{ teacher.name }}老师执教的课程</title>
+  {% elif student %}
+    <title>{{ student.name }}学生参加的课程</title>
+  {% else %}
+    <title>全部课程列表</title>
+  {% endif %}
+{% endblock header %}
 
-  <h1>现在开放以下课程</h1>
-  <ul>
+
+{% block content %}
+  {% if course_list|length > 0 %}
+    <h1>现在开放以下课程</h1>
+  {% else %}
+    <h1>现在还没有开设课程 过会再来吧</h1>
+  {% endif %}
+  <ul class="course_list">
     {% for course in course_list %}
-      <li>
-        <p>课程名:
+      <li class="course_list_item">
+        <p class="course_name">课程名:
           <a href="{% url 'course_detail' course.id %}">{{ course.name }}</a>
         </p>
-        <p>课程简介: {{ course.detail }}</p>
-        <p>执教老师：{{ course.teacher.name }}</p>
-        <p>有{{ course.student_count }}位学生参与</p>
+        <p class="course_description">课程简介: {{ course.detail }}</p>
+        <p class="course_teacher">执教老师：{{ course.teacher.name }}</p>
+        <p class="course_student_count">有{{ course.student_count }}位学生参与</p>
+        {% if teacher %}
+          <a class="course_modify_link" href="{% url "course_edit" course.teacher.id course.id %}">修改</a>
+          <a class="course_delete_link" href="{% url "course_delete" course.teacher.id course.id %}">删除</a>
+        {% elif student %}
+          <button class="btn-sm" href="{% url "student_join_course" course.teacher.id course.id %}">加入</button>
+        {% endif %}
       </li>
     {% endfor %}
   </ul>
+  {% if teacher %}
+    <a href="{% url 'teacher_detail' teacher.id %}">返回教师详情</a>
+    <a href="{% url 'course_create' teacher.id %}">添加课程</a>
+  {% elif student %}
 
-  <p>学习请
-    <a href="{% url 'student_create' %}">注册</a>
-     或者
-    <a href="{% url 'student_login' %}">登录</a>
-  </p>
+  {% else %}
+    <a href="{% url 'index' %}">返回主页</a>
+  {% endif %}
 {% endblock %}

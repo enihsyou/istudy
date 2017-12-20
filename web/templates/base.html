@@ -1,21 +1,175 @@
-<!DOCTYPE html>
-{% load staticfiles %}
-<html lang="zh_CN">
+{% load staticfiles %}<!doctype html>
+<html lang="zh">
 <head>
-  <meta charset="UTF-8">
-  <title>在线学习网站</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  {% block header %}
+    <title>在线学习网站</title>
+  {% endblock %}
+
+  <!-- Bootstrap core CSS -->
   <link href="https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <style>
+
+    /* Space out content a bit */
+    body {
+      padding-top: 1.5rem;
+      padding-bottom: 1.5rem;
+    }
+
+    /* Everything but the jumbotron gets side spacing for mobile first views */
+    .header,
+    .marketing,
+    .footer {
+      padding-right: 1rem;
+      padding-left: 1rem;
+    }
+
+    /* Custom page header */
+    .header {
+      padding-bottom: 1rem;
+      border-bottom: .05rem solid #e5e5e5;
+    }
+
+    /* Make the masthead heading the same height as the navigation */
+    .header h3 {
+      margin-top: 0;
+      margin-bottom: 0;
+      line-height: 3rem;
+    }
+
+    /* Custom page footer */
+    .footer {
+      padding-top: 1.5rem;
+      color: #777;
+      border-top: .05rem solid #e5e5e5;
+    }
+
+    /* Customize container */
+    @media (min-width: 48em) {
+      .container {
+        max-width: 46rem;
+      }
+    }
+
+    .container-narrow > hr {
+      margin: 2rem 0;
+    }
+
+    /* Main marketing message and sign up button */
+    .jumbotron {
+      text-align: center;
+      border-bottom: .05rem solid #e5e5e5;
+    }
+
+    .jumbotron .btn {
+      padding: .75rem 1.5rem;
+      font-size: 1.5rem;
+    }
+
+    /* Supporting marketing content */
+    .marketing {
+      margin: 3rem 0;
+    }
+
+    .marketing p + h4 {
+      margin-top: 1.5rem;
+    }
+
+    /* Responsive: Portrait tablets and up */
+    @media screen and (min-width: 48em) {
+      /* Remove the padding we set earlier */
+      .header,
+      .marketing,
+      .footer {
+        padding-right: 0;
+        padding-left: 0;
+      }
+
+      /* Space out the masthead */
+      .header {
+        margin-bottom: 2rem;
+      }
+
+      /* Remove the bottom border on the jumbotron for visual effect */
+      .jumbotron {
+        border-bottom: 0;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<div class="content container">
-  <div class="row">
-    <div class="col-md-8">
-      {% block content %}
 
-      {% endblock content %}
-    </div>
-  </div>
-</div>
+<div class="container">
+  <header class="header clearfix">
+    <nav>
+      {% block nav %}
+        <ul class="nav nav-pills float-right">
+          <li class="nav-item">
+            <a class="nav-link active" href="{% url 'index' %}">主页<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'course_list' %}">课程</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'paper_list' %}">试卷</a>
+          </li>
+        </ul>
+      {% endblock %}
+    </nav>
+    {% block header_line %}
+      <h3 class="text-muted">在线学习网站</h3>
+    {% endblock %}
 
+  </header>
+
+  <main role="main">
+    {% block content %}
+      <div class="jumbotron">
+        <h1 class="display-3">Jumbotron heading</h1>
+        <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+        <p>
+          <a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a>
+        </p>
+      </div>
+
+      <div class="row marketing">
+        <div class="col-lg-6">
+          <h4>Subheading</h4>
+          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+
+          <h4>Subheading</h4>
+          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+
+          <h4>Subheading</h4>
+          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+        </div>
+
+        <div class="col-lg-6">
+          <h4>Subheading</h4>
+          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+
+          <h4>Subheading</h4>
+          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+
+          <h4>Subheading</h4>
+          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+        </div>
+      </div>
+    {% endblock content %}
+
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 九条涼果 2017</p>
+  </footer>
+
+</div> <!-- /container -->
 </body>
 </html>

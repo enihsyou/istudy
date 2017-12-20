@@ -1,10 +1,13 @@
+{% extends 'base.html' %}
 {% block content %}
-  <h1>试卷『{ paper.title }}』详情</h1>
-  <ul>
+  <h1>试卷『{{ paper.title }}』详情</h1>
+  <ul class="list-group">
     {% for question in paper.question_set.all %}
-      <li>{{ question.title }}</li>
-      <li>{{ question.comment }}</li>
-      <li>{{ question.answer }}</li>
+      <li class="list-group-item">
+        标题:<p class="font-weight-bold">{{ question.title }}</p>
+        介绍:<p>{{ question.comment }}</p>
+        答案:<p>{{ question.answer }}</p>
+      </li>
     {% endfor %}
   </ul>
 

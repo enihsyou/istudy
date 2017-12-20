@@ -3,56 +3,20 @@ from django.contrib.auth.models import User, AbstractUser
 from django.db import models
 
 
-class MyUserManager(BaseUserManager):
-    use_in_migrations = True
-
-    def create_user(self, name, password=None, **extra_fields):
-        user = self.model(name=name, **extra_fields)
-        user.set_password(password)
-        user.save(using=self._db)
-        return user
-
-    def create_superuser(self, name, password, **extra_fields):
-        user = self.model(name=name, **extra_fields)
-        user.set_password(password)
-        user.is_admin = True
-        user.save(using=self._db)
-        return user
-
-
-class MyUser(AbstractBaseUser):
-    name = models.CharField('名字', max_length=255, null=False, unique=True)
-    add_time = models.DateTimeField("添加时间", auto_now_add=True)
-    is_active = models.BooleanField(default=True)
-    is_admin = models.BooleanField(default=True)
-    USERNAME_FIELD = 'name'
-
-    # objects = MyUserManager()
-    class Meta:
-        verbose_name = "用户"
-
-    def has_perm(self, perm, obj=None):
-        "Does the user have a specific permission?"
-        # Simplest possible answer: Yes, always
-        return True
-
-    def has_module_perms(self, app_label):
-        "Does the user have permissions to view the app `app_label`?"
-        # Simplest possible answer: Yes, always
-        return True
-
-    @property
-    def is_staff(self):
-        "Is the user a member of staff?"
-        # Simplest possible answer: All admins are staff
-        return self.is_admin
-
-
-class Teacher(MyUser):
+class Teacher(models.Model):
+    user = models.OneToOneField(User, models.CASCADE)
+    name = models.CharField(max_length=255)
     point = models.CharField(max_length=50, verbose_name='教学特点')
+    add_time = models.DateTimeField("添加时间", auto_now_add=True)
 
+    REQUIRED_FIELDS = ('name',)
 
+    def get_absolute_url(self):
+        return "/teacher/%i/" % self.id
     class Meta:
+        permissions = (
+            ('create_course', "创建课程"),
+        )
         verbose_name = '教师'
 
     @property
@@ -61,26 +25,19 @@ class Teacher(MyUser):
 
     def __str__(self):
         return str(self.name)
-    #
-    # def get_course_nums(self):
-    #     return self.course_set.all().count()
-    #
 
 
-class Student(MyUser):
+class Student(models.Model):
+    user = models.OneToOneField(User, models.CASCADE)
+
+    name = models.CharField(max_length=255)
     course = models.ManyToManyField(to="Course", through="TakeCourse", verbose_name="学生参加的课程")
+    add_time = models.DateTimeField("添加时间", auto_now_add=True)
 
-    mobile = models.CharField(max_length=11)
+    REQUIRED_FIELDS = ('name',)
 
-
-    # def get_image_upload_path(self, file_name):
-    #     print(self),
-    #     return 'avatar/user_{0}/{1}'.format(self.email, file_name)
-    #
-    # avatar_image = models.ImageField(
-    #     upload_to=get_image_upload_path,
-    #     default=u'image/default_avatar.png',
-    #     height_field=100, width_field=100)
+    def get_absolute_url(self):
+        return "/student/%i/" % self.id
     @property
     def take_course_count(self):
         return self.takecourse_set.filter(student_id=self.id).count()
@@ -89,6 +46,9 @@ class Student(MyUser):
         return str(self.name)
 
     class Meta:
+        permissions = (
+            ('join_course', "参加课程"),
+        )
         verbose_name = "学生"
 
 
@@ -100,6 +60,8 @@ class Course(models.Model):
     detail = models.TextField(max_length=500, verbose_name='课程详情')
     add_time = models.DateTimeField("添加时间", auto_now_add=True)
 
+    def get_absolute_url(self):
+        return "/course/%i/" % self.id
     @property
     def student_count(self):
         return self.student_set.count()
@@ -140,6 +102,9 @@ class Lesson(models.Model):
     learn_url = models.URLField("download link")
     add_time = models.DateTimeField("添加时间", auto_now_add=True)
 
+    def get_absolute_url(self):
+        return "/course/%i/%i/" % (self.course.id, self.id)
+
     def __str__(self):
         return str(self.name)
 
@@ -173,6 +138,9 @@ class Paper(models.Model):
     def question_count(self):
         return self.question_set.count()
 
+    def get_absolute_url(self):
+        return "/paper/%i/" % self.id
+
     def __str__(self):
         return str(self.title)
 
@@ -183,9 +151,9 @@ class Paper(models.Model):
 class Question(models.Model):
     paper = models.ForeignKey(Paper, on_delete=models.CASCADE)
     title = models.CharField("问题标题", max_length=255)
-    comment = models.TextField("问题主体")
+    comment = models.CharField("问题主体", max_length=255)
+    answer = models.CharField("问题答案", max_length=255)
     last_modification = models.DateTimeField("最后更新时间", auto_now=True)
-    answer = models.TextField("问题答案")
 
     def __str__(self):
         return str(self.title)

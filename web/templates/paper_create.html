@@ -1,9 +1,28 @@
 {% extends 'base.html' %}
 {% block content %}
   <h1>新增试卷</h1>
-  <form action="" method="post">
-    {% csrf_token %} {{ form.as_p }}
-    <input type="submit" value="Save"/>
-  </form>
 
+
+  <form method="post" action="">
+    {% csrf_token %} {{ formset.management_form }}
+    {% for form in formset %}
+      <div class="form-group">
+        {% for field in form %}
+          <label for="">{{ field.label_tag }}</label>
+          <div class="form-control">{{ field }}</div>
+        {% endfor %}
+      </div>
+    {% endfor %}
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    </div>
+    <div class="form-check">
+      <label class="form-check-label">
+        <input type="checkbox" class="form-check-input">
+        Check me out
+      </label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
 {% endblock %}

@@ -1,15 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
+{% extends 'base.html' %}
+{% block header %}
   <title>学生主页</title>
-</head>
-<body>
+{% endblock %}
+{% block content %}
+
+
 <h1>学生</h1>
 <p>姓名：{{ student.name }} </p>
 <p>添加时间：{{ student.add_time }}</p>
 <a href="{% url "student_course_list" student.id %}">查看加入的课程</a>
 <p>参加了{{ student.take_course_count }}门课程</p>
 <a href="{% url 'index' %}">返回主页</a>
-</body>
-</html>
+{% endblock %}

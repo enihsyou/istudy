@@ -85,13 +85,6 @@ DATABASES = {
         'USER': 'root',
         'PASSWORD': 'enihsyou'
     }
-    # 'default': {
-    #     'NAME': 'istudy',
-    #     'HOST': 'rm-uf6f1vb486241vmq86o.mysql.rds.aliyuncs.com',
-    #     'ENGINE': 'django.db.backends.mysql',
-    #     'USER': 'root',
-    #     'PASSWORD': 'W78mnABYG$Is*N17'
-    # }
 }
 
 # Password validation
@@ -134,7 +127,6 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 ROLEPERMISSIONS_MODULE = 'web.roles'
-AUTH_USER_MODEL = 'web.MyUser'
 USER_ROLES = (
     'teacher',
     'student',

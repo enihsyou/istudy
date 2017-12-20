@@ -1,14 +1,30 @@
-<h1>{{ teacher.name }}老师执教的课程</h1>
-<ul>
-  {% for course in course_list %}
-    <li>
-      <a href="{% url 'teacher_course_detail' teacher.id course.id %}">{{ course.name }}</a>
-      : {{ course.detail }}
-      <a href="{% url "course_edit" course.teacher.id course.id %}">修改</a>
-      <a href="{% url "course_delete" course.teacher.id course.id %}">删除</a>
-    </li>
-  {% endfor %}
-</ul>
+{% extends 'base.html' %}
 
-<a href="{% url 'teacher_detail' teacher.id %}">返回教师详情</a>
-<a href="{% url 'teacher_course_create' teacher.id %}">添加课程</a>
+{% block header %}
+  <title>{{ teacher.name }}老师执教的课程</title>
+
+{% endblock header %}
+
+
+{% block content %}
+
+  <ul class="course_list">
+    {% for course in course_list %}
+
+      <li class="course_list_item">
+        <a class="course_name" href="{% url 'course_detail' course.id  %}">{{ course.name }}</a>
+
+        <span class="course_detail">{{ course.detail }}</span>
+      
+        {% if teacher %}
+          <a href="{% url "course_edit" course.teacher.id course.id %}">修改</a>
+          <a href="{% url "course_delete" course.teacher.id course.id %}">删除</a>
+        {% endif %}
+
+      </li>
+    {% endfor %}
+  </ul>
+
+  <a href="{% url 'teacher_detail' teacher.id %}">返回教师详情</a>
+  <a href="{% url 'teacher_course_create' teacher.id %}">添加课程</a>
+{% endblock content %}

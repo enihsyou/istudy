@@ -1,13 +1,16 @@
+from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.views import logout, LoginView, login
+from django.contrib.auth.views import logout, LoginView
+from django.forms import inlineformset_factory
 from django.http import Http404
-from django.shortcuts import redirect
+from django.shortcuts import redirect, get_object_or_404, render
 from django.urls import reverse_lazy
 from django.views.decorators.http import require_POST, require_GET
 from django.views.generic import *
 from django.views.generic.base import *
 from rolepermissions.checkers import has_permission
 
+from web import form
 from web.form import *
 from web.models import *
 
@@ -16,58 +19,59 @@ class IndexView(TemplateView):
     template_name = "index.html"
 
 
-# 注册
-class TeacherCreateView(CreateView):
-    model = Teacher
-    form_class = TeacherCreateForm
-    template_name = "signup.html"
-
-    # fields = ['username', 'password']
-    def get_success_url(self):
-        return reverse_lazy('teacher_detail',
-                            kwargs={'pk': Teacher.objects.get(name=str(self.request.POST['name'])).id})
-
-    class Meta:
-        model = Teacher
-        fields = ("name",)
-        field_classes = {'name': UsernameField}
+@require_POST
+def student_login_view(request):
+    username = request.POST['username']
+    password = request.POST['password']
+    user = authenticate(username=username, password=password)
+    if user is not None:
+        login(request, user)
+        return HttpResponseRedirect(reverse_lazy('student_detail',
+                                                 kwargs={
+                                                     'pk': Student.objects.get(user=user).id
+                                                 }))
+    return HttpResponseRedirect(reverse_lazy('index'))
 
 
-class StudentCreateView(CreateView):
-    """学生注册"""
-    model = Student
-    form_class = StudentCreateForm
-    template_name = "signup.html"
+@require_POST
+def student_signup_view(request):
+    username = request.POST['username']
+    password = request.POST['password']
+    user = User.objects.create_user(username, password=password)
+    student = Student.objects.create(user=user, name=username)
 
-    def get_success_url(self):
-        return reverse_lazy('student_detail',
-                            kwargs={'pk': Student.objects.get(name=str(self.request.POST['name'])).id})
-
-    class Meta:
-        model = Student
-        fields = ("name",)
-        field_classes = {'name': UsernameField}
+    login(request, user)
+    return HttpResponseRedirect(student.get_absolute_url())
 
 
-# 登录
-class StudentLoginView(LoginView):
-    """学生登陆"""
-    template_name = "login.html"
+@require_POST
+def teacher_login_view(request):
+    username = request.POST['username']
+    password = request.POST['password']
+    user = authenticate(username=username, password=password)
+    if user is not None:
+        login(request, user)
+        return HttpResponseRedirect(reverse_lazy('teacher_detail',
+                                                 kwargs={
+                                                     'pk': Teacher.objects.get(user=user).id
+                                                 }))
+    return HttpResponseRedirect(reverse_lazy('index'))
 
-    def get_success_url(self):
-        return reverse_lazy('student_detail',
-                            kwargs={'pk': Student.objects.get(name=str(self.request.POST['username'])).id})
 
+@require_POST
+def teacher_signup_view(request):
+    username = request.POST['username']
+    password = request.POST['password']
+    user = User.objects.create_user(username, password=password)
+    teacher = Teacher.objects.create(user=user, name=username)
 
-class TeacherLoginView(LoginView):
-    template_name = "login.html"
-
-    def get_success_url(self):
-        return reverse_lazy('teacher_detail',
-                            kwargs={'pk': Teacher.objects.get(name=str(self.request.POST['username'])).id})
+    login(request, user)
+    return HttpResponseRedirect(reverse_lazy('teacher_detail',
+                                             kwargs={'pk': teacher.id}))
 
 
 # 课程操作视图
+
 class CourseListView(ListView):
     """列出所有相关课程"""
     model = Course
@@ -108,6 +112,54 @@ class TeacherCourseListView(ListView):
     template_name = "teacher_course_list.html"
 
 
+@require_GET
+def course_list(request, course=None, teacher=None, student=None, **kwargs):
+    if teacher is not None:
+        query_set = Course.objects.filter(teacher_id=teacher)
+        teacher_object = Teacher.objects.get(id=teacher)
+        context = {
+            'course_list': query_set,
+            'teacher': teacher_object
+        }
+    elif student is not None:
+        query_set = TakeCourse.objects.filter(student_id=student)
+        student_object = Student.objects.get(id=student)
+        context = {
+            'course_list': query_set,
+            'student': student_object
+        }
+    else:
+        query_set = Course.objects.all()
+        context = {
+            'course_list': query_set,
+        }
+    return render(request, 'course_list.html', context)
+
+
+@require_GET
+def course_detail(request, course=None, teacher=None, student=None, **kwargs):
+    query_set = Course.objects.get(course_id=course)
+
+    if teacher is not None:
+        teacher_object = Teacher.objects.get(id=teacher)
+        context = {
+            'course': query_set,
+            'teacher': teacher_object
+        }
+    elif student is not None:
+        student_object = Student.objects.get(id=student)
+        context = {
+            'course': query_set,
+            'student': student_object
+        }
+    else:
+        context = {
+            'course': query_set,
+        }
+    return render(request, 'course_detail.html', context)
+
+
+@require_GET
 class TeacherCourseDetailView(DetailView):
     """列出所有相关课程"""
     model = Course
@@ -165,14 +217,11 @@ class CourseCreateView(CreateView):
     model = Course
     fields = ['teacher', 'name', 'detail']
     template_name = "course_create.html"
-    success_url = reverse_lazy('course_list')
-    #
-    # def form_valid(self, form):
-    #     name = form.cleaned_data['name']
-    #     detail = form.cleaned_data['detail']
-    #     teacher_id = 9
-    #     Course(teacher=teacher_id, name=name, detail=detail).save()
-    #     return redirect(self.get_success_url())
+
+    def get_success_url(self):
+        return reverse_lazy('teacher_course_list', kwargs={
+            'teacher': self.kwargs['teacher'],
+        })
 
 
 class TeacherCourseUpdateView(UpdateView):
@@ -183,17 +232,9 @@ class TeacherCourseUpdateView(UpdateView):
     fields = ['name', 'detail']
 
     def get_success_url(self):
-        return reverse_lazy('course_list', self.kwargs['course'])
-    #
-    # def form_valid(self, form):
-    #     name = form.cleaned_data['name']
-    #     detail = form.cleaned_data['detail']
-    #     teacher_id = 9
-    #     course = Course.objects.get(teacher=teacher_id, name=name)
-    #     course.name = name
-    #     course.detail = detail
-    #     course.save()
-    #     return redirect(self.get_success_url())
+        return reverse_lazy('teacher_course_list', kwargs={
+            'teacher': self.kwargs['teacher'],
+        })
 
 
 class TeacherCourseDeleteView(DeleteView):
@@ -300,15 +341,25 @@ class PaperListView(ListView):
     model = Paper
     template_name = "paper_list.html"
 
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(PaperListView, self).get_context_data(**kwargs)
+        context['teacher'] = Teacher.objects.get(user_id=self.request.user.id)
+        return context
 
-class PaperCreateView(CreateView):
-    model = Paper
-    template_name = "paper_create.html"
 
-    def get_success_url(self):
-        return reverse_lazy('paper_list')
-
-    fields = ('title',)
+def paper_create_view(request):
+    paper = Paper("某某试卷")
+    inlineFormSet = inlineformset_factory(Paper, Question, fields=('title', 'comment', 'answer'))
+    if request.method == "POST":
+        formset = inlineFormSet(request.POST, request.FILES, instance=paper)
+        if formset.is_valid():
+            paper.save()
+            formset.save()
+            # Do something. Should generally end with a redirect. For example:
+            return HttpResponseRedirect(paper.get_absolute_url())
+    else:
+        formset = inlineFormSet(instance=paper)
+    return render(request, 'paper_create.html', {'formset': formset})
 
 
 class QuestionCreateView(CreateView):

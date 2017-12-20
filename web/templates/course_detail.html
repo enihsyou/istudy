@@ -1,21 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
+{% extends 'base.html' %}
+{% block header_line %}
+
   <title>课程详情</title>
-</head>
-<body>
-<h1>课程名：{{ course.name }}</h1>
-<p>执教老师：{{ course.teacher.name }} </p>
-<p>课程简介：{{ course.detail }}</p>
-<p>添加时间：{{ course.add_time }}</p>
-章节列表：
-<ul>
-  {% for lesson in course.lesson_set.all %}
-    <li>
-      <a href="{% url 'lesson_detail' course.id lesson.id %}">{{ lesson.name }}</a>
-    </li>
-  {% endfor %}
-</ul>
-</body>
-</html>
+{% endblock %}
+{% block content %}
+
+  <p class="course_name">课程名：{{ course.name }}</p>
+  <p class="course_teacher">执教老师：{{ course.teacher.name }} </p>
+  <p class="course_description">课程简介：{{ course.detail }}</p>
+  <p class="course_add_time">添加时间：{{ course.add_time }}</p>
+  <p>章节列表：</p>
+  <ul class="lesson_list">
+    {% for lesson in course.lesson_set.all %}
+      <li class="lesson_list_item">
+        <a href="{% url 'lesson_detail' course.id lesson.id %}">{{ lesson.name }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
