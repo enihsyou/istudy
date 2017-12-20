@@ -1,11 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
-  <h1>学生注册</h1>
-
+  <h1>登录</h1>
   <form action="" method="post">
     {% csrf_token %} {{ form.as_p }}
     <input type="submit" value="Save"/>
   </form>
-
-
+  <a href="{% url 'signup' %}">在这注册</a>
+  <a href="{% url 'index' %}">返回主页</a>
 {% endblock %}

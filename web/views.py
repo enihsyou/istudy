@@ -6,6 +6,7 @@ from django.urls import reverse_lazy
 from django.views.decorators.http import require_POST, require_GET
 from django.views.generic import *
 from django.views.generic.base import *
+from rolepermissions.checkers import has_permission
 
 from web.form import *
 from web.models import *
@@ -15,12 +16,79 @@ class IndexView(TemplateView):
     template_name = "index.html"
 
 
-# 课程操作视图
+# 注册
+class TeacherCreateView(CreateView):
+    model = Teacher
+    form_class = TeacherCreateForm
+    template_name = "signup.html"
 
+    # fields = ['username', 'password']
+    def get_success_url(self):
+        return reverse_lazy('teacher_detail',
+                            kwargs={'pk': Teacher.objects.get(name=str(self.request.POST['name'])).id})
+
+    class Meta:
+        model = Teacher
+        fields = ("name",)
+        field_classes = {'name': UsernameField}
+
+
+class StudentCreateView(CreateView):
+    """学生注册"""
+    model = Student
+    form_class = StudentCreateForm
+    template_name = "signup.html"
+
+    def get_success_url(self):
+        return reverse_lazy('student_detail',
+                            kwargs={'pk': Student.objects.get(name=str(self.request.POST['name'])).id})
+
+    class Meta:
+        model = Student
+        fields = ("name",)
+        field_classes = {'name': UsernameField}
+
+
+# 登录
+class StudentLoginView(LoginView):
+    """学生登陆"""
+    template_name = "login.html"
+
+    def get_success_url(self):
+        return reverse_lazy('student_detail',
+                            kwargs={'pk': Student.objects.get(name=str(self.request.POST['username'])).id})
+
+
+class TeacherLoginView(LoginView):
+    template_name = "login.html"
+
+    def get_success_url(self):
+        return reverse_lazy('teacher_detail',
+                            kwargs={'pk': Teacher.objects.get(name=str(self.request.POST['username'])).id})
+
+
+# 课程操作视图
 class CourseListView(ListView):
     """列出所有相关课程"""
     model = Course
     template_name = "course_list.html"
+
+    def get_queryset(self):
+        qs = super().get_queryset()
+        if has_permission(self.request.user, 'edit_course'):
+            return qs.filter(teacher_id=self.request.user.id)
+        elif has_permission(self.request.user, 'join_course'):
+            return qs.filter(takecourse__student_id=self.request.user.id)
+        else:  # 匿名用户
+            return qs
+
+    def get_template_names(self):
+        if has_permission(self.request.user, 'edit_course'):
+            return "teacher_course_list.html"
+        elif has_permission(self.request.user, 'join_course'):
+            return "student_course_list.html"
+        else:  # 匿名用户
+            return "course_list.html"
 
 
 class TeacherCourseListView(ListView):
@@ -179,30 +247,6 @@ class LessonDetailView(DetailView):
 
 # 学生操作视图
 
-class StudentLoginView(LoginView):
-    """学生登陆"""
-    template_name = "student_login.html"
-
-    def get_success_url(self):
-        return reverse_lazy('student_detail',
-                            kwargs={'pk': Student.objects.get(name=str(self.request.POST['username'])).id})
-
-
-class StudentCreateView(CreateView):
-    """学生注册"""
-    model = Student
-    form_class = StudentCreateForm
-    template_name = "student_signup.html"
-
-    def get_success_url(self):
-        return reverse_lazy('student_detail',
-                            kwargs={'pk': Student.objects.get(name=str(self.request.POST['name'])).id})
-
-    class Meta:
-        model = Student
-        fields = ("name",)
-        field_classes = {'name': UsernameField}
-
 
 class StudentLogoutView(TemplateView):
     template_name = "student_logout.html"
@@ -233,25 +277,6 @@ class StudentTakeExam(View):
 
 # 教师操作视图
 
-class TeacherLoginView(LoginView):
-    template_name = "teacher_login.html"
-
-
-class TeacherCreateView(CreateView):
-    model = Teacher
-    form_class = TeacherCreateForm
-    template_name = "teacher_signup.html"
-
-    # fields = ['username', 'password']
-    def get_success_url(self):
-        return reverse_lazy('teacher_detail',
-                            kwargs={'pk': Teacher.objects.get(name=str(self.request.POST['name'])).id})
-
-    class Meta:
-        model = Student
-        fields = ("name",)
-        field_classes = {'name': UsernameField}
-
 
 class TeacherDetailView(DetailView):
     model = Teacher
@@ -279,8 +304,10 @@ class PaperListView(ListView):
 class PaperCreateView(CreateView):
     model = Paper
     template_name = "paper_create.html"
+
     def get_success_url(self):
         return reverse_lazy('paper_list')
+
     fields = ('title',)
 
 

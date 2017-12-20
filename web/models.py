@@ -26,8 +26,8 @@ class MyUser(AbstractBaseUser):
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=True)
     USERNAME_FIELD = 'name'
-    objects = MyUserManager()
 
+    # objects = MyUserManager()
     class Meta:
         verbose_name = "用户"
 
@@ -47,8 +47,10 @@ class MyUser(AbstractBaseUser):
         # Simplest possible answer: All admins are staff
         return self.is_admin
 
+
 class Teacher(MyUser):
     point = models.CharField(max_length=50, verbose_name='教学特点')
+
 
     class Meta:
         verbose_name = '教师'
@@ -69,6 +71,7 @@ class Student(MyUser):
     course = models.ManyToManyField(to="Course", through="TakeCourse", verbose_name="学生参加的课程")
 
     mobile = models.CharField(max_length=11)
+
 
     # def get_image_upload_path(self, file_name):
     #     print(self),
