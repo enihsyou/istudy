@@ -1,16 +1,13 @@
 from django.contrib.auth import authenticate, login
-from django.contrib.auth.decorators import login_required
-from django.contrib.auth.views import logout, LoginView
+from django.contrib.auth.models import Group
 from django.forms import inlineformset_factory
 from django.http import Http404
-from django.shortcuts import redirect, get_object_or_404, render
+from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 from django.views.decorators.http import require_POST, require_GET
 from django.views.generic import *
 from django.views.generic.base import *
-from rolepermissions.checkers import has_permission
 
-from web import form
 from web.form import *
 from web.models import *
 
@@ -40,6 +37,7 @@ def student_signup_view(request):
     user = User.objects.create_user(username, password=password)
     student = Student.objects.create(user=user, name=username)
 
+    user.groups.add(Group.objects.get(name="student"))
     login(request, user)
     return HttpResponseRedirect(student.get_absolute_url())
 
@@ -64,7 +62,7 @@ def teacher_signup_view(request):
     password = request.POST['password']
     user = User.objects.create_user(username, password=password)
     teacher = Teacher.objects.create(user=user, name=username)
-
+    user.groups.add(Group.objects.get(name="teacher"))
     login(request, user)
     return HttpResponseRedirect(reverse_lazy('teacher_detail',
                                              kwargs={'pk': teacher.id}))
@@ -79,20 +77,13 @@ class CourseListView(ListView):
 
     def get_queryset(self):
         qs = super().get_queryset()
-        if has_permission(self.request.user, 'edit_course'):
-            return qs.filter(teacher_id=self.request.user.id)
-        elif has_permission(self.request.user, 'join_course'):
-            return qs.filter(takecourse__student_id=self.request.user.id)
-        else:  # 匿名用户
-            return qs
+        # return qs.filter(teacher_id=self.request.user.id)
+        # return qs.filter(takecourse__student_id=self.request.user.id)
+        # else:  # 匿名用户
+        return qs
 
     def get_template_names(self):
-        if has_permission(self.request.user, 'edit_course'):
-            return "teacher_course_list.html"
-        elif has_permission(self.request.user, 'join_course'):
-            return "student_course_list.html"
-        else:  # 匿名用户
-            return "course_list.html"
+        return "course_list.html"
 
 
 class TeacherCourseListView(ListView):

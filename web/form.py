@@ -2,8 +2,7 @@
 from django import forms
 
 from django.contrib.auth.forms import UserChangeForm, UserCreationForm, UsernameField, AuthenticationForm
-from rolepermissions import roles
-from rolepermissions.roles import assign_role
+from django.contrib.auth.models import Permission
 
 from web.models import Student, Teacher
 
@@ -23,7 +22,8 @@ class StudentCreateForm(UserCreationForm):
     def save(self, commit=True):
         user = super().save(commit=False)
         user.set_password(self.cleaned_data["password1"])
-        assign_role(user, 'StudentRole')
+        permission = Permission.objects.get(name='join_course')
+        user.user_permissions.add(permission)
         if commit:
             user.save()
         return user
@@ -49,7 +49,8 @@ class TeacherCreateForm(UserCreationForm):
     def save(self, commit=True):
         user = super().save(commit=False)
         user.set_password(self.cleaned_data["password1"])
-        assign_role(user, 'TeacherRole')
+        permission = Permission.objects.get(name='edit_course')
+        user.user_permissions.add(permission)
 
         if commit:
             user.save()

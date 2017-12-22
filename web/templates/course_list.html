@@ -25,19 +25,19 @@
         <p class="course_description">课程简介: {{ course.detail }}</p>
         <p class="course_teacher">执教老师：{{ course.teacher.name }}</p>
         <p class="course_student_count">有{{ course.student_count }}位学生参与</p>
-        {% if teacher %}
+        {% if perms.edit_course %}
           <a class="course_modify_link" href="{% url "course_edit" course.teacher.id course.id %}">修改</a>
           <a class="course_delete_link" href="{% url "course_delete" course.teacher.id course.id %}">删除</a>
-        {% elif student %}
-          <button class="btn-sm" href="{% url "student_join_course" course.teacher.id course.id %}">加入</button>
+        {% elif perms.join_course %}
+          <a class="btn-sm" href="{% url "student_join_course" course.teacher.id course.id %}">加入</a>
         {% endif %}
       </li>
     {% endfor %}
   </ul>
-  {% if teacher %}
+  {% if perms.edit_course %}
     <a href="{% url 'teacher_detail' teacher.id %}">返回教师详情</a>
-    <a href="{% url 'course_create' teacher.id %}">添加课程</a>
-  {% elif student %}
+    <a href="{% url 'teacher_course_create' teacher.id %}">添加课程</a>
+  {% elif perms.join_course %}
 
   {% else %}
     <a href="{% url 'index' %}">返回主页</a>

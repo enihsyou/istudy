@@ -1,12 +1,11 @@
 # -*- coding: UTF-8 -*-
-from django.contrib import admin
 from django.urls import path, include
 
 from web import views
 
 urlpatterns = [
     path('', views.IndexView.as_view(), name='index'),
-    path('logout/', views.logout, name='logout'),
+    # path('logout/', views.logout, name='logout'),
     path('course/', include([
         path('list/', views.CourseListView.as_view(), name='course_list'),
         path('<int:course>/', views.CourseDetailView.as_view(), name='course_detail'),

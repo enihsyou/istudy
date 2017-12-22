@@ -1,18 +1,11 @@
 from django.contrib import admin
-from django.contrib.admin.options import *
-
-from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
-from django.contrib.auth.forms import UserChangeForm, UserCreationForm
-from django.contrib.auth.models import User, Group
-
-from web import models
+from django.contrib.auth.models import Permission
 
 from web.models import Student, Course, Paper, Question, Lesson, Teacher, TakeCourse
 
 admin.site.site_header = "项目管理课程系统"
 
-
-admin.site.unregister(Group)
+admin.site.register(Permission)
 
 
 @admin.register(Student)
@@ -21,7 +14,7 @@ class StudentUserAdmin(admin.ModelAdmin):
         model = TakeCourse
         readonly_fields = ('final_term_grade',)
         fieldsets = (
-            (None, {'fields': ('course.name', )}),
+            (None, {'fields': ('course.name',)}),
             ('分数', {'fields': ('usual_behave_grade', 'master_test_grade', 'final_term_grade')}),
         )
         extra = 0
@@ -38,8 +31,7 @@ class TeacherUserAdmin(admin.ModelAdmin):
         model = Course
         extra = 0
 
-    fields = ('name', 'password')
-    fieldsets = ()
+    fields = ('name', )
     list_display = ('name', 'add_time', 'teaching_course_count')
     inlines = (CourseInline,)
 

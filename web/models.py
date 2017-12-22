@@ -18,7 +18,7 @@ class Teacher(models.Model):
             ('create_course', "创建课程"),
         )
         verbose_name = '教师'
-
+        verbose_name_plural = "教师"
     @property
     def teaching_course_count(self):
         return self.course_set.filter(teacher_id=self.id).count()
@@ -50,6 +50,7 @@ class Student(models.Model):
             ('join_course', "参加课程"),
         )
         verbose_name = "学生"
+        verbose_name_plural = "学生"
 
 
 class Course(models.Model):
@@ -75,6 +76,7 @@ class Course(models.Model):
 
     class Meta:
         verbose_name = '课程'
+        verbose_name_plural = '课程'
 
     #
     # def get_lesson_nums(self):
@@ -110,6 +112,7 @@ class Lesson(models.Model):
 
     class Meta:
         verbose_name = '课程章节'
+        verbose_name_plural = '课程章节'
 
     # # 获取章节视频
     # def get_lesson_video(self):
@@ -146,6 +149,7 @@ class Paper(models.Model):
 
     class Meta:
         verbose_name = "测试试卷"
+        verbose_name_plural = "测试试卷"
 
 
 class Question(models.Model):
@@ -160,6 +164,7 @@ class Question(models.Model):
 
     class Meta:
         verbose_name = "试卷问题"
+        verbose_name_plural = "试卷问题"
 
 # class UserCourse(models.Model):
 #     user = models.ForeignKey(Student, on_delete=models.CASCADE, verbose_name='用户')

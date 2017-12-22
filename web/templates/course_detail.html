@@ -17,4 +17,6 @@
       </li>
     {% endfor %}
   </ul>
+  <a href="{% url 'teacher_lesson_create' course.teacher.id course.id %}">添加课程</a>
+  <a href="{% url 'teacher_detail' course.teacher.id %}">返回</a>
 {% endblock %}
