@@ -19,7 +19,7 @@ class StudentUserAdmin(admin.ModelAdmin):
         )
         extra = 0
 
-    fields = ('name', 'password')
+    fields = ('name',)
 
     list_display = ('name', 'add_time', 'take_course_count')
     inlines = (TakeInline,)

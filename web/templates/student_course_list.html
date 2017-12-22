@@ -7,6 +7,7 @@
       <li>
         <a href="{% url 'course_detail' course.id %}">{{ course.name }}</a>
         : {{ course.detail }}
+        <a href="{% url 'student_join_course' course.id student.id %}">加入课程</a>
       </li>
     {% endfor %}
   </ul>
